@@ -1,0 +1,454 @@
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.23 sec)
+
+					CREATE DATABASE
+Q---------- how to create a database
+
+mysql> create database ustglobal
+    -> ;
+Query OK, 1 row affected (0.11 sec)
+
+					SHOW DATABASE
+Q----------HOW TO SEE DATABASES
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| ustglobal          |
++--------------------+
+5 rows in set (0.00 sec)
+
+					USE DATABASE
+
+q------- how to use database
+
+
+mysql> use ustglobal
+Database changed
+mysql> show tables
+    -> ;
+Empty set (0.05 sec)
+
+
+					to create table
+
+q----------how to create a table
+
+
+mysql> create table student(id int,name varchar(120),emailid varchar(120));
+Query OK, 0 rows affected (0.42 sec)
+
+mysql>
+
+					to show tables
+
+q------------- how to show a table
+
+
+mysql> show tables
+    -> ;
++---------------------+
+| Tables_in_ustglobal |
++---------------------+
+| student             |
++---------------------+
+1 row in set (0.00 sec)
+
+
+					to get structure of table
+
+q--------- how to get structure of table
+
+
+mysql> desc student;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | YES  |     | NULL    |       |
+| name    | varchar(120) | YES  |     | NULL    |       |
+| emailid | varchar(120) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.35 sec)
+
+
+					to drop table
+
+q---------- how to drop table
+
+mysql> drop table student
+    -> ;
+
+
+					to delete a database
+
+q------------ how to delete a database
+
+
+mysql> drop database ustglobal
+    -> ;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+					to alter table
+
+q-------------- how to add column name in table
+
+
+
+mysql> alter table student add column age int;
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | YES  |     | NULL    |       |
+| name    | varchar(120) | YES  |     | NULL    |       |
+| emailid | varchar(120) | YES  |     | NULL    |       |
+| age     | int(11)      | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+q------------------------ or------------------
+
+
+
+mysql> alter table student add mobileno int;
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int(11)      | YES  |     | NULL    |       |
+| name     | varchar(120) | YES  |     | NULL    |       |
+| emailid  | varchar(120) | YES  |     | NULL    |       |
+| age      | int(11)      | YES  |     | NULL    |       |
+| mobileno | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+				to delete a column
+
+q---------- to delete a column from table
+
+mysql> alter table student drop mobileno;
+Query OK, 0 rows affected (0.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | YES  |     | NULL    |       |
+| name    | varchar(120) | YES  |     | NULL    |       |
+| emailid | varchar(120) | YES  |     | NULL    |       |
+| age     | int(11)      | YES  |     | NULL    |       |
++---------+--------------+----------------------------
+
+				to rename a column
+
+q--------------- to rename a column
+
+
+mysql> alter table student change name studentname varchar(120);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student
+    -> ;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int(11)      | YES  |     | NULL    |       |
+| studentname | varchar(120) | YES  |     | NULL    |       |
+| emailid     | varchar(120) | YES  |     | NULL    |       |
+| age         | int(11)      | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+
+				TO RENAME A TABLE
+
+Q------------ to rename a table
+
+mysql> rename table student to student_info;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_ustglobal |
++---------------------+
+| student_info        |
++---------------------+
+1 row in set (0.00 sec)
+
+					to write data in column
+
+q--------------- to write data in column
+
+insert into student (id,studentname,emailid,age,address) values(1,nikhil,ladnikhil55@gmail.com,21,mumbai);
+
+					to write data one at time
+
+
+ insert into student values(2,'sid','sid@gmail.com',23,'mumbai'),(3,'vikas','vikas@gmail.com',21,'pune'),(4,'akshay','akshay@gmail.com',21,'mumbai');
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   21 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   23 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   23 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   21 | mumbai  |
++------+-------------+-----------------------+------+---------+
+5 rows in set (0.00 sec)
+
+
+
+					TO ADD DATA IN SPECIFIC COLUMN ONLY
+
+Q---------TO ADD DATA IN SPECIFIC COLUMN
+
+insert into student (studentname,age) values('rohan',25);
+Query OK, 1 row affected (0.41 sec)
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   21 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   23 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   23 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   21 | mumbai  |
+| NULL | rohan       | NULL                  |   25 | NULL    |
++------+-------------+-----------------------+------+---------+
+6 rows in set (0.00 sec)
+
+
+					to update a column
+
+q------------------ how to update a column
+
+
+mysql> update student set age = 20 ;
+Query OK, 6 rows affected (0.20 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   20 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   20 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   20 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   20 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   20 | mumbai  |
+| NULL | rohan       | NULL                  |   20 | NULL    |
++------+-------------+-----------------------+------+---------+
+6 rows in set (0.00 sec)
+					to delete all rows
+
+
+mysql> delete from student;
+Query OK, 6 rows affected (0.11 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+					to insert value in table
+
+q---------- to insert value in table
+
+
+mysql> insert into student values(1,'nikhil','ladnikhil55@gmail.com',21,'mumbai'),(2,'sid','sid@gmail.com',25,'mumbai'),(3,'vikas','vikas@gmail.com',21,'pune'),(4,'akshay','akshay@gmail.com',21,'mumbai')
+    -> ;
+Query OK, 4 rows affected (0.08 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   21 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   25 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   21 | mumbai  |
++------+-------------+-----------------------+------+---------+
+4 rows in set (0.00 sec)
+
+					to delete all records in table
+
+mysql> truncate table student;
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+
+					to select particular column in table
+
+mysql> select studentname,emailid from student;
++-------------+-----------------------+
+| studentname | emailid               |
++-------------+-----------------------+
+| nikhil      | ladnikhil55@gmail.com |
+| sid         | sid@gmail.com         |
+| vikas       | vikas@gmail.com       |
+| akshay      | akshay@gmail.com      |
++-------------+-----------------------+
+4 rows in set (0.03 sec)
+
+
+						use where clase
+
+q------------ selct data from table where name is nikhil
+
+mysql> select * from student where studentname = 'nikhil';
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   21 | mumbai  |
++------+-------------+-----------------------+------+---------+
+1 row in set (0.05 sec)
+
+q---------------------------select data from table where id is 2
+
+
+mysql> select * from student where id = 2;
++------+-------------+---------------+------+---------+
+| id   | studentname | emailid       | age  | address |
++------+-------------+---------------+------+---------+
+|    2 | sid         | sid@gmail.com |   25 | mumbai  |
++------+-------------+---------------+------+---------+
+1 row in set (0.05 sec)
+
+q------------------------ select data from table where age is 21
+
+
+mysql> select * from student where age = 21;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   21 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   21 | mumbai  |
++------+-------------+-----------------------+------+---------+
+3 rows in set (0.00 sec)
+
+
+
+q------------------------------------- to update using select 
+
+
+mysql> update student set  age=18 where id = 1;
+Query OK, 1 row affected (0.41 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   18 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   25 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
+|    4 | akshay      | akshay@gmail.com      |   21 | mumbai  |
++------+-------------+-----------------------+------+---------+
+4 rows in set (0.00 sec)
+
+q----------------------delete record using where clause
+
+mysql> delete from student where id = 4;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from student;
++------+-------------+-----------------------+------+---------+
+| id   | studentname | emailid               | age  | address |
++------+-------------+-----------------------+------+---------+
+|    1 | nikhil      | ladnikhil55@gmail.com |   18 | mumbai  |
+|    2 | sid         | sid@gmail.com         |   25 | mumbai  |
+|    3 | vikas       | vikas@gmail.com       |   21 | pune    |
++------+-------------+-----------------------+------+---------+
+3 rows in set (0.00 sec)
+
+
+					create table using constraints
+
+
+mysql> create table studentinfo(id int,name varchar(120) not null,emailid varchar(120),primary key(id));
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> desc studentinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | NO   | PRI | NULL    |       |
+| name    | varchar(120) | NO   |     | NULL    |       |
+| emailid | varchar(120) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+					create employeeinfo
+
+q----------- create table using constraints
+
+
+mysql> create table employeeinfo(id int,name varchar(120) not null,emailid varchar(120),designation varchar(120),mobilenumber int,age int,DOB date not null,DOJ date,salary double,deptid int,bloodgroup varchar(120),primary key(id));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> desc employeeinfo;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id           | int(11)      | NO   | PRI | NULL    |       |
+| name         | varchar(120) | NO   |     | NULL    |       |
+| emailid      | varchar(120) | YES  |     | NULL    |       |
+| designation  | varchar(120) | YES  |     | NULL    |       |
+| mobilenumber | int(11)      | YES  |     | NULL    |       |
+| age          | int(11)      | YES  |     | NULL    |       |
+| DOB          | date         | NO   |     | NULL    |       |
+| DOJ          | date         | YES  |     | NULL    |       |
+| salary       | double       | YES  |     | NULL    |       |
+| deptid       | int(11)      | YES  |     | NULL    |       |
+| bloodgroup   | varchar(120) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+
+q=----------------------------- in designation column SOFTDEVELOPER,HR,CLERK,SALESMAN,ANALYST,TESTTER AND DEPT ID(10,20,30,40)
