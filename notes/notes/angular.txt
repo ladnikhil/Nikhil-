@@ -1,0 +1,764 @@
+angular is a javascript framework for developing single page applications
+
+it can be built using ES6 or typescript 
+
+it has a single page application  means when we click it does not reloads
+
+framework is collection of large number of libraries 
+
+typscript uses --- 1 - class based object oriented programming
+		   2 - static typing
+
+in 2009 google made angularjs it was developed by Miake hevely
+
+angularjs was built by MVC(model view control) architecture
+
+angular 2.0  ---------- rewritten whole framework in typescript
+
+recent version of angular is angular 8.0  ---------- it has @viewchild  ---------- based on controller/service based architecture
+
+by default local srver of angular is localhost:4200        (no space)
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+					installation
+
+we need angular CLI (command line interface)------------it is a node package
+
+npm install -g @angular/cli
+
+ng --version ---------------- to check version of angular
+
+ng lint------------------- checks coding standards
+
+------------------------------------------------------------------------------------------------------------------------------
+
+					INSTALL NEW ANGULAR PROJECT
+
+ng new  project-name (angular-project) .......................... name should be in snake case
+
+would you like to add angular routing? --------------- n
+
+IF NO 
+CSS
+
+IT WILL INSTALL ALL FILES
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+e2e,karamas is n to n testing folders
+
+flow of angular ---- index.html is starting of project and main.ts is main file for typescript styles.css is glbal css files
+when we giv ecmmand ng serve all files will get converted into js files
+
+assets is used for storing videoes and images
+
+environments ---- 1 -- development environment ---- when we bulid project is in development environment
+		  2 -- production environment  ---- used for deployment
+
+app component is root component
+
+usually one component consist of 4 files
+
+1 - filename.component.html
+2 - filename.component.ts
+3 - filename.component.css
+4 - filename.component.spec.ts
+
+PROVIDERS ARE USED FOR DECLARING SERVICES
+
+use @ to convert it into components
+
+-------------------------------------------------------------------------------------------------------------------------------
+				ANGULAR PROJECT STRUCTURE
+
+index.html -- -- entry point of angular app
+
+main.ts --------- it is the global typescript file.
+
+styles.css ------ global css files
+
+environments: -------- production and devekopment
+
+package.json ------- takes care of node related packages
+
+polyfills.ts ----- for browser purpose
+
+app ---- root component
+
+e2e ----- end to end testing purpose
+
+				
+---------------------------------------------------------------------------------------------------------------------------------
+ 
+
+fisrt serve project by  ---------------- ng serve  in cmd ---- to compile a code  and convert all files into js filess
+
+compiled successfully 
+
+go to browser type localhost:4200
+
+-----------------------------------------------------------------------------------------------------------------------------------
+					for creating project
+
+in app folder create one typescript file
+
+import { Components } from "@angular/core";
+
+@components({
+	selector : 'app-sample';                         // we can use it as html tag
+	template :    ` ` ,                                   // we can write any html
+	styles :      [`{ }`]                                   //for css
+})
+export class               {
+
+}
+
+what we do we should change it in app.module.ts ------------ in that change declarations-----give , and write component name
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+						STEPS	
+
+1 - go to apps folder then 
+    create ts file by name filename.component.ts
+
+2-
+
+import { Components } from "@angular/core";
+
+@components({
+	selector : 'app-sample';                         // we can use it as html tag
+	template :   ` `    ,                                // we can write any html
+	styles :       [`{       }`]                          //for css
+})
+export class SampleComponent{
+
+}
+
+
+3-
+then go to app.module.ts in that declarations give , and write componentname here
+
+4-
+then go to app.component.html ------------their only call selector by using tag 
+eg- in this case -<app-sample> </app-sample>
+
+------------------------------------------------------------------------------------------------------------------
+
+templateUrl: './sample.component.html',
+    styleUrls:['./sample.component.css']
+for different files of css and html
+
+---------------------------------------------------------------------------------------------------------------------
+
+ng g c (component name) ---------------------------- to automatically create components ----- all 4 files automatically
+here ng is for angular 
+g is to generate a file
+c is to generate a component
+
+npm i bootstrap
+
+go to angular.jason -------------- go to styles give , and write "bootstrap path"
+eg-
+              "node_modules/bootstrap/dist/css/bootstrap.css"          // to add bootstrap and css
+
+in script write 
+
+eg - "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"	// to add jquery and bootstrap
+
+ctrl c then y
+ng serve -----------to compile
+
+-------------------------------------------------------------------------------------------------------------------
+
+				
+
+{{  }} --- for string interpolation ----------- to get data written in class
+
+----------------------------------------------------------------------------------------------------------------
+
+			DATA BINDING
+
+databinding is core concept in angular and allows to define communication bewtween componnt and DOM
+
+			2 types of databinding 
+in oneway databinding we can bind through ts and html files
+------- 1 oneway databinding ---------property binding,	--- []
+				      class binding,  --- []
+					style binding,	--- []
+					attribute binding, --- []
+					event binding 	-----() ----------------		
+
+we can use only one attribute at a time
+
+-----------------------------------------------------------------------------------------------------------------------							     
+			       
+					2 twoway databinding
+
+ngmodel is used in twoway databinding
+in order to use ngmodel we need to have forms module
+import { FormsModule } from '@angular/forms'; in app.module.ts
+
+
+----------------------------------------------------------------------------
+
+						events
+
+click
+keydown
+keyup
+key center
+
+--------------------------------------------------------------------------
+				           LIFECYCLE HOOkS
+
+each and every lifecycle hooks has an interface
+
+this are basically a methods
+
+angular application goes through an entire set of processes or has a lifeccycle right from its initiaiton to end the apllicaton
+
+fist constructor works then ngonchanges then ngoninit
+
+single class has multiple interfaces
+
+ngOnInit ---------------------   all assignment stuff is done here
+
+ngOnChanges --------- when value of data bound property changes then this method is called.
+
+ngDoCheck --------------- this is for detection to act on changes that angular cant or wont detect on its own
+
+ngAfterContentInit ---------- this is called in responde after angular projects external content into components view
+
+ngAfterContentChecked ----------  this is called in response after angular checks content projected into component
+
+ngAfterViewChecked ------------- this is called in response after angular checks component views and child views
+
+ngOnD
+
+-----------------------------------------------------------------------------------------------------------------
+						DIRECTIVES
+
+THEY CAN change the dom structure
+
+we have 3 types of directives
+
+1 structural directives
+
+		*ngIf   ----# is used for template reference variable used for *ngif
+                         ng-template is reference variable
+
+		*ngFor   ---- takes only array  all arecamelcase
+
+
+		*ngSwitch------------------------instead of star use property binding here
+
+2 attribute directives 
+
+
+		ngclass
+		ngstyle
+
+
+3 component directives --------------- they are decorated with @directives
+
+ng g d directive-name -----------command for directive--------creates only 2 filess
+we need to import special class none as ElementRef----------gives reference to particular element
+
+constructor(elementRef: ElementRef) ----------DIRECTLY IMPORTS 
+
+in html ----------- use that selectorname as directory
+eg- <p appMyDirective>    as name of directive is app-my-directive
+
+-----------------------------------------------------------------------------------------------------------
+
+					HOSTLISTENER
+
+to listen an event
+
+@HostListener('mouseenter')
+mouseEnter(){
+  // alert("mouse enter");
+  this.elementRef.nativeElement.style.background = 'red';
+  this.elementRef.nativeElement.style.color = 'white';
+  this.elementRef.nativeElement.style.fontSize = '40px';
+}
+
+@HostListener('mouseleave')
+mouseLeave(){
+  // alert("mouse leave");
+  this.elementRef.nativeElement.style.background = 'green';
+  this.elementRef.nativeElement.style.color = 'red';
+  this.elementRef.nativeElement.style.fontSize = '20px';
+}
+
+--------------------------------------------------------------------------------------------------------------------
+					HOSTBINDING
+
+WE CAN ASSIGN THIS TO A VARIABE
+we use dom here
+
+-----------------------------------------------------------------------------------------------------------------
+
+					@Input and @Output
+compulsory one component should be present in another component
+@input is used to pass daata from parent to child -------------property binding
+
+@output is used to pass data from child to PARENT --------------- event binding
+
+---------------------------------------------------------------------------------------------------
+
+					ROUTING
+
+FOR MAKING SINGLE PAGE APPLICATION
+
+we have to use router module 
+
+localhost:4200\login\register------------- this is routing
+
+import{ RouterModule } from '@angular/router'
+in imports -------RouterModule.forRoot([
+      { path: '', component: HomeComponent},
+      { path: 'about', component: AboutComponent,
+children: 
+      [ 
+        { path: 'child1', component: Child1Component},
+        { path: 'child2', component: Child2Component},
+        { path: 'child3', component: Child3Component},
+
+
+      ]}},
+      { path: 'login', component: LoginComponent},
+      { path: 'register',component: RegisterComponent}
+       { path: '**', component: PageNotFoundComponent} ---------------------wild card and write at end
+    ])
+
+we have to use forroot([  ])
+
+<router-outlet> <router-outlet> ----------i sused to display all router components
+
+instead of href we shoul use routerLink in routing---------it works without reload---for empty path---"/"
+
+use jumbotron to page not find
+
+-----------------------------------------------------------------------------------------------
+use angular routing and create components like cars and receipes,news,mobiles
+
+----------------------------------------------------------------------------------------------------
+
+					ANGULAR FORMS
+
+
+2 TYPES OF FORMS
+
+			1----------	TEMPLATE DRIVEN FORM--------------write ONLY HTML
+
+				ngForm
+				ngModel
+				template reference variable
+
+we have to import forms module
+import { FormsModule } from '@angular/forms';
+
+with #reference variable='ngForm'
+
+in form field -------#loginform='ngform'------------it handsover form to angular
+we have to write name attribute always as it holds athe data
+in input field --------#username='ngmodel' ngmodel
+
+ngSubmit is given by angular itself
+					
+					TO RESET
+
+NgForm is class ----------- provides reset
+
+import { NgForm } from '@angular/forms';
+
+  printform(loginform : NgForm){
+    console.log(loginform.value);
+    loginform.reset();
+  }
+
+
+
+			2-----------REACTIVE/MODEL DRIVEN FORM----------WE HAVE TO WRITE TS LOGIC HERE
+ 
+it is also known as reactive forms
+
+here we can use custom validation ---------- we can do validation by self
+
+abstract control is top hierarchial class ---------- custom validation
+
+formgroup--------inbuilt validation
+
+formcontrol------inbuilt validation
+
+import { FormGroup,FormControl, Validators } from '@angular/forms';
+
+formcontrol name in input=-----------------
+
+ [formGroup]='registerform' (ngSubmit)='printform(registerform)=------------------ write in form tag
+
+IN TS FILE
+
+
+  get name(){
+    return this.registerform.get('name');/// to get data from class
+  }
+
+  
+  get name2(){
+    return this.registerform.get('name2');/// to get data from class
+  }
+
+
+
+  
+  get email(){
+    return this.registerform.get('email');
+  }
+
+  
+  get phno(){
+    return this.registerform.get('phno');
+  }
+
+  
+  get password(){
+    return this.registerform.get('password');
+  }
+
+  get reenter_password(){
+    return this.registerform.get('reenter_password');
+  }
+
+
+
+
+  
+
+  registerform = new FormGroup({
+
+    name: new FormControl('',[Validators.minLength(3),Validators.required]),
+
+    name2: new FormControl('',[Validators.minLength(3),Validators.required]),
+
+
+    email :new FormControl('',[Validators.email,Validators.minLength(5),Validators.required]),
+
+    phno : new FormControl('',[Validators.minLength(10),Validators.required]),
+
+    password : new FormControl('',[Validators.minLength(4),Validators.required]),
+
+    reenter_password: new FormControl('',[Validators.minLength(4),Validators.required])
+  })
+
+  printform(form){
+    console.log(form);
+  }
+
+---------------------------------------------------------------------------------------------------------------
+					CUSTOM VALIDATION
+
+
+VALIDATORNAME.VALIDATOR.TS-----------------NEW VALIDATOR
+
+
+import { AbstractControl,ValidationErrors } from '@angular/forms';
+ 
+ export class CustomValidator {
+     static noSpace(control: AbstractControl) : ValidationErrors | null {
+         if((control.value as string).indexOf('') >= 0){
+             return{ noSpace : true}
+         }else{
+             return null;
+         }
+     }
+ }
+
+-------------------------------------------------------------------------------------------------------------------
+				OBSERVABLES rxjs(reactive extensions for javascripts)
+
+rxjs ------------ is library
+
+ observables can take care of streams of data but promises cannot lot of data
+
+method provided by observables are subscribe and unsubscribe only fat arrow function are taken here
+
+rxjs is used to filter the data that we get
+
+
+----------------------------------------------------------------------------------------------------------------------
+					PIPES
+
+PIPES operators takes rxjs operators
+
+pipes are used to filter the ddata in form which we required
+
+--------------------------------------------------------------------------------------------------------------------------
+					SERVICES
+
+IF WE HAVA ANY COMMN DATA IN BOTH COMPONENTS WE WILL KEEP IT IN SERVICES AND INjECT THAT SERVIE IN THE COMPONENT
+
+created file user.service.ts in app
+
+import  { Injectable } from '@angular/core';
+
+
+@Injectable({
+    providedIn: "root"        // after ths this service will be available to all the components
+})       
+
+any class decoreated eith @injectable can be injected to any other component/services thats what we call as dependency injection                   
+ 
+we can also write whothout providedin 
+
+@Inject({
+
+})
+
+we have to write component object 
+provider: [UserService]
+
+we can also directly write it in app.module.ts
+
+we can create ng g s servicename ------------ to create service name
+
+---------------------------------------------------------------------------------------------------------------------
+
+					HTTP
+
+API IS application program interface
+
+import { HttpClientModule } from '@angular/common/http'
+
+{ HttpClient } ----------- we have get,post,put ,delete it is also injectable class
+
+import { HttpClient } from '@angular/common/http';
+
+each http method returns observable objects
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+						for fetching an api using GET METHOD
+
+
+import { HttpClient } from '@angular/common/http';
+
+export class NewsComponent implements OnInit {
+
+  indianNews: any[] = [];
+  constructor(private http: HttpClient ) { 
+    http.get<any>('https://newsapi.org/v2/everything?q=bitcoin&from=2019-07-12&sortBy=publishedAt&apiKey=596bb71371a94d6ab53c72d7159608ae').subscribe(resData=>{
+      this.indianNews = resData.articles;
+      console.log(this.indianNews);
+    })
+  
+  } 
+
+in news.component.ts
+
+go to newsapi.org 
+
+copy api and paste it in browser
+
+in news html
+
+<div class=" container">
+    <div class="card card-body" *ngFor="let news of indianNews">
+        <img src="{{news.urlToImage}}" alt="" class="card-img-top">
+        <h3>{{news.title}}</h3>
+        <p>{{news.description}}</p>
+        <a href="{{news.url}}" class="btn btn-primary">click here for more</a>
+    </div>
+
+</div>
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+					for fethcing movie api
+
+export class MovieComponent implements OnInit {
+
+  moviearray:any[] = [];
+  constructor(private http: HttpClient) { }
+
+  searchmovies(movie){
+
+    console.log(movie);
+    this.http.get<any>(`http://www.omdbapi.com/?s=${movie}&apikey=e9b818b9`).subscribe(resData=>{
+    this.moviearray = resData.Search;
+    console.log(this.moviearray);
+    })
+  }
+
+s=${movie}--------------------- to get movie because we use interpolation here
+
+for that gp to omdb api ---- get api from there ---------delect freee and register - go to your mail-- activate api then use that api---
+
+after that remove from i to before & in link of api and write s=anymoviename and save
+
+export class MovieComponent implements OnInit {
+
+  moviearray:any[] = [];
+  constructor(private http: HttpClient) { }
+
+  searchmovies(movie){
+
+    console.log(movie);
+    this.http.get<any>(`http://www.omdbapi.com/?s=${movie}&apikey=e9b818b9`).subscribe(resData=>{         /// change s=${movie} to get all movies
+    this.moviearray = resData.Search;
+    console.log(this.moviearray);
+    })
+  }
+
+-----------------------------------------------------------------------------------------------------------------
+
+						FIREBASE
+
+
+go to firebasegoogle.com--------- then go to consol then database
+
+---------------------------------------------------------------------------------------------------------------------
+					put method
+
+put also takes 2 arguements
+
+.jason remove from api and pass key.json
+
+eg-https://angular-http-3aa44.firebaseio.com/users/-Lm3rFLKV32ijlTeeAJE.json
+
+we have an inbuilt method known as navigateByUrl()
+
+---------------------------------------------------------------------------------------------------
+
+cars
+
+brand 
+model
+ear of release
+
+cost
+
+no of units sold
+------------------------------------------------------------------------------------------------
+
+https://api.github.com/users
+
+
+display id, avatarurl,nodeid,url  in table format
+
+----------------------------------------------------------------------------------------------
+
+https://jsonplaceholder.typicode.com/posts
+
+dislplay all fields
+
+-----------------------------------------------------------------------------------------------
+
+						PIPES
+
+go to angular.io
+
+TYPES OF inbuilt PIPES
+
+UPPercase
+lowercase
+titlecase
+date
+
+for creatinf pipe we need a class
+we should have @pipe
+
+@pipe({
+	name: 'custom'
+})
+
+export class CustomPipe implements PipeTransform{
+
+transform(){
+
+}
+}
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'reduce'
+})
+export class ReducePipe implements PipeTransform {
+
+  transform(value: string, length: number ): any {
+    if (value.length <= length) {
+      return value;
+    } else {
+      return value.substr(0, length) + '...';
+    }
+  }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------
+
+ 					to serach data using pipe
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'filter'
+})
+export class FilterPipe implements PipeTransform {
+
+  transform(users: user[], searchvalue): user[] {
+    if (searchvalue === undefined) {
+      return users;
+    } else {
+      return users.filter(data => {
+        return data.name.toLowerCase().includes(searchvalue.toLowerCase());
+      });
+    }
+  }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------
+
+				Topics
+
+INTRO
+diff between angular and angularjs
+components manually and using cli
+databinding
+	property binding
+	event binding
+relation between components
+directives
+	strictural
+	attribute
+	components
+forms
+	temmplate driven form
+	model driven form
+ROUTING
+SERVICES
+dependency injection
+http client module
+using firebase
+pipes
+
+---------------------------------------------------------------------------
+				deployment
+
+ng build --prod -------------------to deploy project
+
+it will create dist folder and after that n that all files will get converted into js files
+
+in dist foldeer their wll be html fil paste their add firebase sdk code their at last
+
+then install firebase cli 
+
+sirs deployed project---------------https://angular-http-4f39e.firebaseapp.com/firebase
+
+

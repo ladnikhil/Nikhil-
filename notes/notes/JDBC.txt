@@ -1,0 +1,348 @@
+ 
+							JDBC
+
+jdbc is JAVA database connectivity
+
+it has only one API that can connect database and java
+
+we use jdbc to store,retrieve update and delete data from database
+
+api is collection of different packages
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							
+
+APPLICATIONS ARE OF 2 TYPES
+
+						1----------STANDALONE(unshared application)
+
+APPLICATIONS PRESENT IN OUR SYSTEM and are dedicated to per user
+
+eg-------pdf readers,calculator,media players
+						
+
+
+						2-------------WEB APPLICATION(shared application)
+
+these applications are not present in our computer but they re present n some other computer and our computer and other (server) is network connnected
+
+web application are present in networks
+
+it can be present in intranet and internet
+
+networks is a collection of computers 
+and their are two types of network
+
+1===intranet(private)-- dedicated to one network only 
+eg--- qspiders id card swapping
+
+2-----internet(public)----- dedicated to all network
+
+
+
+
+						3------------hybrid application
+
+it is combination of standalone and web applications
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								SERVER
+
+it is also a computer but hardware of this computer is pretty high level compared to our computers
+
+eg------ servers can have ram upto gbs of ram
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+api is collection of packages
+
+in j2EE THEIR ARE MANY APIS LIKE:servlets,jsp,java mail etc
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+								J2EE
+					
+						J2EE ----------- JAVA ENTERPRISE EDITION
+
+***************J2EE is a collection of api which helps us to develop enterprise web application
+
+an api (application programmn interface) is a collection of packages woth dedicated functionality
+major j2ee api are ----------servelets,jsp,jdbc
+
+*********jdbc connects web application and databas
+
+**********servelets or jsp helps web application to get the request from browser,generate response and gives response back to browser 
+
+***********all the api'S OF j2ee are based upon java and hence they are platform independent 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							JDBC(JAVA DATABASE CONNECTIVITY)
+
+jdbc is an api it helps connectivity between java programs and database
+
+********************note------------servelets and jsp are java programs
+
+************************in the world of java,jdbc is yhe one and only api that helps to interact with rdbms application
+
+********************JDBC is an database independent
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						JAVA THUMBRULES
+
+IF LHS==RHS (A reg = new A();)------------ THEN LHS IS ALWAYS A CONCRETE CLASS
+
+IF LHS!=RHS (B ref = new A();) ---------then LHS CAN BE INTERFACE/CONCRETE OR ABSTRACT CLASS
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							NECESARY STEPS TO WORK WITH JDBC
+
+1--------- LOAD THE DRIVER   
+
+2---------GET DB CONNECTION VIA DRIVER
+
+3--------- ISSUE SQL QUERIES VIA CONNECTION
+
+4-------- PROCESS THE RESULTS RETURNED BY SQL QUERIES
+
+5--------CLOSE ALL JDBC OBJECTS
+
+STEP 1,2 AND 5 WILL HAPPEN ONLY ONCE
+
+STEP 4,3 WILL HAPPEN N NUMBER OF TIMES
+
+************java.sql.*  is  package representatioN of JDBC
+
+*****any CLASS/INTERFACE belongs to this package means its part of jdbc
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								Drivers
+
+drivers are additional software components required by JDBC to interact with RDBMS applications
+
+drivers are provided by DB vendors and theey are Db dependent that  means using mysql driver wecan only interact with mysql rdbms application
+
+each diff databases we can have different drivers
+
+*********note----------- jdbc is database independent and drivers are database dependent
+
+								Driver types
+
+explain all 4 types of jdbc driver
+
+1-------JDBC ODBC BRIDGE/TYPE 1
+
+2-------NATIVE API DRIVER/TYPE 2
+
+3-------NETWORK PROTOCOL/TYPE 3 
+
+4-------NATIVE PROTOCOL/TYPE 4
+
+**********ON JDBC 4 DRIVER LOADS AUTOMATICALLY IF THE JAR FILE IS PRESENT IN PROJECTS CLASSPATH
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								JAR FILES(JAVA ARCHIVES FILES)
+
+ITS a collection of .class files + other necessary resources(text fle,xml,property files etc)
+
+							HOW TO MAKE USE OF JAR FILES
+
+
+1-----RIGHT CLICK ON PROJ --- BUILD PATH ----ADD EXTERNAL ARCHIVES-----ADD MYSQL JAR FILE DRIVER
+
+alway for jdc we need to add jar file of mysql connectivity
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								DRIVER CLASS
+
+DRIVER CLASS IS A CONCRETE CLASS presetn in driver jar file-------it implements "java.sql.Driver"interface
+
+this interface is present in JDBC api and every jdbc driver provider has to implement interface
+
+DRIVER CLASS helps us to establiah db connection,transfer db query and results between java programand rdbms application
+
+when we load the class we should alway register
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							STEPS TO LOAD DRIVER CLASS
+
+// LOAD THE DRIVER
+			
+			java.sql.Driver div = new Driver();
+			DriverManager.registerDriver(div); // always we need to register when we load the class (and here div is object)
+			System.out.println("driver loaded");
+
+							we can create driver class
+
+Class.forname("com.mysql.jdbc.Driver")// here we have to pass driver concrete class as an arguemnet
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+							STEPS TO GET CONNECTION VIA DRIVER
+
+
+		Connection  conn = null;                                            // always use connection.java.sql
+
+	
+			//get connection via driver
+			
+			String dbUrl = "jdbc:mysql://localhost:3306/ust_ty_db?user=root&password=root";// url for connection
+			
+			conn = DriverManager.getConnection(dbUrl);   // get connection helps us to get connection
+			System.out.println("connection established");
+			System.out.println("=============================================");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+			WE CAN HAVE CONNECTIONS OF DRIVERMANAGER BY 3 OVERLOADED VERSION OGF GETCONNECTION()
+
+1-------- getConnection(String dburl)
+
+2--------getConnection(String dburl,String user,String Password)----------------------- used when we want to give input and has increased security
+
+3-------getConnection(String dburl,Properties props)-------------properties props will have key and values pairs---mostly used in industries
+
+string dburl="jdbc:mysql://localhost:3306/ust_ty_db";
+string filepath = "";
+
+Filereader reader = new Fiereader(filepath);
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+							STEPS TO ISSUE SQL QUERIES VIA CONNECTION
+
+Statement  stmt  = null;                                 // always use statement.java.sql
+
+		ResultSet rs  = null;                          // always use resultset.java.sql
+
+
+
+			// ISSUE SQL QUERY VIA CONNECTION
+
+			String query = "select * from user_info";// here user_info is table in database name ust_ty_db
+
+			// to create this string into query we need a statement so we use createstatement()
+
+			stmt = conn.createStatement();
+
+			// here query does not have semiclon so we need another method to execute query
+
+			rs = stmt.executeQuery(query); // here give arguement as query variable and rs is result set
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						STEPS TO RESULT RETURNED BY SQL QUERY
+
+
+			// RESULT RETURNED BY SQL QUERY
+			
+			while(rs.next()) {                                        
+				int userid = rs.getInt("userid"); // here we have arguement as column name i.e userid
+				String username = rs.getString("username"); //here we have arguement as column name i.e username
+				String email = rs.getString("email");//here we have arguement as column name i.e email
+				
+				System.out.println("userid = "+userid);
+				System.out.println("username = "+username);
+				System.out.println("useremail = "+email);
+				System.out.println("********************************************");
+				
+			}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						STEPS TO CLOSE ALL THE OBJECTS
+
+finally {
+			
+			// CLOSE ALL THE OBJECTS
+			
+			if(conn!=null) {
+				try {
+					conn.close(); // it is used to close objects
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+			}
+			
+			if(stmt!=null) {
+				try {
+					stmt.close(); // it is used to close any object
+					
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+			}
+			
+			if(rs!=null) {
+				try {
+					rs.close(); // it is used to close any object
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+			}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+							2 types os sql queries
+
+1---------static query ----------which does not contain condition or with hardcoded conditionn values(if we give the value in that value only)
+eg====== selct * from tablename where id=2 (here we have given value of id so it is static)
+
+2-------dynamic queries------------ must have a condition and one/more condtion values get decided at runtime are known as dynamic queries
+eg--------- select * from tablename where x=? and y=?;(when we take input of queries)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							JDBC statements
+
+jdbc statements send sql  queries 
+
+1------java.sql.satement
+2-----java.sql.preparedstatement
+3----java.callable stetement
+
+							java.sql.statement
+
+its an interface and an object of statement is used to execute static queries
+
+statement objects can be created by invoking createstatement() method
+
+							java.sql.preparedstatement
+
+its an interface and an object of this statement is used to execute dynamic sql queries
+
+prepard statement objects can be created by invoking preparestatement() method on connection object
+
+prepares statement 

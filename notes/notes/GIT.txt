@@ -1,0 +1,42 @@
+git is global information tracker
+
+git is source code management system.
+
+it is created by linux toroulds
+
+it coordinates with multiple developers
+
+it can be reverted by any version
+
+we have to create a repository we need to make global and local repository
+
+it is version control system tracking for changes of file or project
+
+it was created by linux rounded in 2005
+
+it has 2 types central version system 2 types
+	CVGS - CENTRAL vesion conntrl 
+	DVCS 	distributed version cs
+
+git works on 2 tier as well as 3 tier architecture
+
+git bash is full of comments
+
+git is a version control system is a software that helps software designs to work together and maintain a complete history of their framework
+allows developers towork simultaneously
+---------------------------------------------------------------------------------------------------
+pwd for path
+
+cd gitbash
+
+git init
+
+touch a.txt -----create a file
+
+vi finename   --- to modify file
+
+esc :wq to go back again
+
+git add filename
+
+gid add .
