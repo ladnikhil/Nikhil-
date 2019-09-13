@@ -1,3 +1,4 @@
+    
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ export class UsersComponent implements OnInit {
   constructor( private firebaseService: FirebaseService,
    private router: Router) { }
 
-  updateuser(user){
+   updateuser(user){
     this.firebaseService.selectedUser = user;
     this.router.navigateByUrl('/firebase');
   }
@@ -24,9 +25,10 @@ export class UsersComponent implements OnInit {
     })
   }
 
+
   ngOnInit() {
     this.firebaseService.getData();
-    console.log(this.firebaseService.users);
+    console.log(this.firebaseService.users)
   }
 
 }

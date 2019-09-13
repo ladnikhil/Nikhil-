@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +7,18 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  users = [];
+
+  user = [];
   constructor() { }
 
-  ngOnInit() {
+  printform(Loginform: NgForm){
+    console.log(Loginform.value);
+    this.user.push(Loginform.value);
+    Loginform.reset();
+    console.log(this.user);
   }
 
-  printform(loginform : NgForm){
-    console.log(loginform.value);
-    this.users.push(loginform.value);        // to write data in aray
-    loginform.reset();
-    console.log(this.users);      // to write data in aray
-    
+  ngOnInit() {
   }
 
 }

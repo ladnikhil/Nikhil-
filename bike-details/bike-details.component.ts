@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-bike-details',
   templateUrl: './bike-details.component.html',
   styleUrls: ['./bike-details.component.css']
-}) 
+})
 export class BikeDetailsComponent implements OnInit {
 
    @Input() bikedetails:any = '';

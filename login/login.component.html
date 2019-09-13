@@ -1,52 +1,36 @@
-<div class="container">
-   <div class="col-md-4 offset-4 mt-5">
-<form action=""#loginform='ngForm' (ngSubmit)='printform(loginform)'>
-    <legend class="text-center">Login form</legend>
-    <div class="form-group">
-        <label for="username">username</label>
-        <input type="email" placeholder="username" name="username" class="form-control" minlength="5" #username='ngModel' ngModel required email>
-    </div>
+<div class="container col-md-4 offset-4 mt-5 card card-body">
+   
+   <form action="" method="POST" role="form" #Loginform='ngForm' (ngSubmit)='printform(Loginform)' >
+       <legend class="text-center">Login Form</legend>
+   
+       <div class="form-group">
+           <label for="username">username</label>
+           <input type="email" class="form-control"  name="username"placeholder="username" minlength="5" required #username='ngModel' ngModel email>
+       </div>
 
-    <div *ngIf='username.touched && username.invalid'>
-        <div class="alert alert-danger" *ngIf='username.errors.email'> input field takes only email</div>
-        <div class="alert alert-danger" *ngIf='username.errors.minlength'>minlength is 5</div>
-    </div>
+       <div *ngIf = 'username.invalid && username.touched'>
+            <div class="alert alert-danger" *ngIf = 'username.errors.minlength'> minlength is 5</div>
+            <div class="alert alert-danger" *ngIf = 'username.errors.required'>input field is required </div>
+       </div>
 
-    <div class="form-group">
+       
+       <div class="form-group">
             <label for="password">password</label>
-            <input type="password" placeholder="password" name="password" class="form-control" required minlength="5" #password='ngModel' ngModel pattern="nikhil">
+            <input type="password" class="form-control"  name="password"placeholder="password"required #password='ngModel' ngModel>
         </div>
+       
+        <div *ngIf = 'password.invalid && password.touched'>
+                <div class="alert alert-danger" *ngIf = 'password.errors.minlength'> minlength is 5</div>
+                <div class="alert alert-danger" *ngIf = 'password.errors.required'>input field is required </div>
+           </div>
 
-        <div *ngIf='password.touched && password.invalid'>
-            <div class="alert alert-danger" *ngIf='password.errors.pattern'>pattern  not matched</div>
-            <div class="alert alert-danger" *ngIf='password.errors.minlength'>password  must be minimum 5 characters</div>
-        </div>
+       
 
-        <div class=" text-center ">
-        <button type="reset" class="btn btn-primary" >reset</button>
-        <button type="submit" class="btn btn-success ml-3" >submit</button>
+        <div class="text-center">
+       <button  type="submit" class="btn btn-success">Submit</button>
+       <button  type="reset" class="btn btn-primary ml-3">reset</button>
     </div>
-</form>
+   </form>
+   
+
 </div>
-</div> 
-<!-- 
-<div class="container">
-    <table class="table table-hover table-bordered table-dark">
-        <thead>
-            <tr>
-                <th>index</th>
-                <th>username</th>
-                <th>password</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = 'let user of users; index as i'>
-                <td>{{i}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.password}}</td>
-            </tr>
-        </tbody>
-    </table>
-
-</div> -->
-
