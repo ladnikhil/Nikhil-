@@ -1895,8 +1895,199 @@ select max(salary) from employeeinfo WHERE salary <(select max(salary) from empl
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
+
 			joins
 
 q------------ to display all records using cross joins
 
+
 select * from employeeinfo cross JOIN department_info
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+					query for innerjoin
+
+
+mysql> select * from employeeinfo inner join department_info on name like 'n%'
+    -> ;
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+| id | name   | emailid          | designation        | mobilenumber | age  | DOB        | DOJ        | salary | deptid | bloodgroup | deptid | departmentname | location |
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     10 | accounting     | banglore |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     10 | accounting     | banglore |
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     20 | research       | pune     |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     20 | research       | pune     |
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     30 | sales          | delhi    |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     30 | sales          | delhi    |
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     40 | operation      | chennai  |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     40 | operation      | chennai  |
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     50 | admin          | mumbai   |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     50 | admin          | mumbai   |
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     60 | maintainance   | kolkata  |
+| 10 | ninad  | ninad@gmail.com  | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |     60 | maintainance   | kolkata  |
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+12 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+mysql> select * from employeeinfo inner join department_info on employeeinfo.deptid =  department_info.deptid
+    -> ;
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+| id | name   | emailid          | designation        | mobilenumber | age  | DOB        | DOJ        | salary | deptid | bloodgroup | deptid | departmentname | location |
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+|  1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     10 | accounting     | banglore |
+|  2 | omkar  | omkar@gmail.com  | software developer |    965474525 |   21 | 1997-10-26 | 2019-05-01 |  28000 |     20 | A+         |     20 | research       | pune     |
+|  3 | sanket | sanket@gmail.com | HR                 |    985671236 |   21 | 1997-08-12 | 2019-05-15 |  26000 |     30 | A+         |     30 | sales          | delhi    |
+|  4 | rahul  | rahul@gmail.com  | software developer |    789753936 |   21 | 1997-10-26 | 2019-05-12 |  27000 |     40 | A+         |     40 | operation      | chennai  |
+|  5 | sahil  | sahil@gmail.com  | clerk              |    785275396 |   22 | 1996-10-25 | 2019-04-14 |  14000 |     50 | A+         |     50 | admin          | mumbai   |
+|  6 | rohan  | rohan@gmail.com  | HR                 |    852753936 |   22 | 1996-05-25 | 2019-01-14 |  29000 |     60 | B          |     60 | maintainance   | kolkata  |
++----+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+6 rows in set (0.00 sec)
+
+
+						query for left outer join
+
+mysql> select * from employeeinfo left outer join department_info on employeeinfo.deptid =  department_info.deptid;
++----+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+| id | name    | emailid           | designation        | mobilenumber | age  | DOB        | DOJ        | salary | deptid | bloodgroup | deptid | departmentname | location |
++----+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+|  1 | nikhil  | nikhil@gmail.com  | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     10 | accounting     | banglore |
+|  2 | omkar   | omkar@gmail.com   | software developer |    965474525 |   21 | 1997-10-26 | 2019-05-01 |  28000 |     20 | A+         |     20 | research       | pune     |
+|  3 | sanket  | sanket@gmail.com  | HR                 |    985671236 |   21 | 1997-08-12 | 2019-05-15 |  26000 |     30 | A+         |     30 | sales          | delhi    |
+|  4 | rahul   | rahul@gmail.com   | software developer |    789753936 |   21 | 1997-10-26 | 2019-05-12 |  27000 |     40 | A+         |     40 | operation      | chennai  |
+|  5 | sahil   | sahil@gmail.com   | clerk              |    785275396 |   22 | 1996-10-25 | 2019-04-14 |  14000 |     50 | A+         |     50 | admin          | mumbai   |
+|  6 | rohan   | rohan@gmail.com   | HR                 |    852753936 |   22 | 1996-05-25 | 2019-01-14 |  29000 |     60 | B          |     60 | maintainance   | kolkata  |
+|  7 | pranesh | pranesh@gmail.com | HR                 |    842753936 |   21 | 1997-05-25 | 2019-06-24 |  29000 |     70 | B          |   NULL | NULL           | NULL     |
+|  8 | jay     | jay@gmail.com     | salesman           |    852758936 |   22 | 1996-05-25 | 2019-11-24 |  15000 |     80 | AB         |   NULL | NULL           | NULL     |
+|  9 | anand   | anand@gmail.com   | salesman           |    842153936 |   21 | 1997-05-25 | 2019-01-14 |  15000 |     90 | AB         |   NULL | NULL           | NULL     |
+| 10 | ninad   | ninad@gmail.com   | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |   NULL | NULL           | NULL     |
+| 11 | satya   | satya@gmail.com   | tester             |    942113936 |   21 | 1997-06-25 | 2019-01-14 |  25000 |    110 | AB         |   NULL | NULL           | NULL     |
+| 12 | vikas   | vikas@gmail.com   | analyst            |    945758936 |   21 | 1997-06-10 | 2019-11-04 |  24000 |    120 | O          |   NULL | NULL           | NULL     |
+| 13 | sid     | sid@gmail.com     | analyst            |    842113936 |   21 | 1997-06-20 | 2019-01-14 |  24000 |    130 | O          |   NULL | NULL           | NULL     |
+| 14 | vinayak | vinayak@gmail.com | analyst            |    945758936 |   21 | 1997-02-10 | 2019-11-04 |  24000 |    140 | O          |   NULL | NULL           | NULL     |
+| 15 | kalpesh | kalpesh@gmail.com | analyst            |    842178936 |   21 | 1997-04-20 | 2019-01-04 |  24000 |    150 | O          |   NULL | NULL           | NULL     |
+| 16 | rahul   | NULL              | NULL               |         NULL | NULL | 1997-02-14 | 2019-01-10 |   NULL |   NULL | 21         |   NULL | NULL           | NULL     |
++----+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+16 rows in set (0.01 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+					query for right outer join
+
+mysql> select * from employeeinfo right outer join department_info on employeeinfo.deptid =  department_info.deptid;
++------+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+| id   | name   | emailid          | designation        | mobilenumber | age  | DOB        | DOJ        | salary | deptid | bloodgroup | deptid | departmentname | location |
++------+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+|    1 | nikhil | nikhil@gmail.com | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     10 | accounting     | banglore |
+|    2 | omkar  | omkar@gmail.com  | software developer |    965474525 |   21 | 1997-10-26 | 2019-05-01 |  28000 |     20 | A+         |     20 | research       | pune     |
+|    3 | sanket | sanket@gmail.com | HR                 |    985671236 |   21 | 1997-08-12 | 2019-05-15 |  26000 |     30 | A+         |     30 | sales          | delhi    |
+|    4 | rahul  | rahul@gmail.com  | software developer |    789753936 |   21 | 1997-10-26 | 2019-05-12 |  27000 |     40 | A+         |     40 | operation      | chennai  |
+|    5 | sahil  | sahil@gmail.com  | clerk              |    785275396 |   22 | 1996-10-25 | 2019-04-14 |  14000 |     50 | A+         |     50 | admin          | mumbai   |
+|    6 | rohan  | rohan@gmail.com  | HR                 |    852753936 |   22 | 1996-05-25 | 2019-01-14 |  29000 |     60 | B          |     60 | maintainance   | kolkata  |
++------+--------+------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+6 rows in set (0.00 sec)
+
+					query for outerjoin
+
+mysql> select * from employeeinfo left outer join department_info on employeeinfo.deptid =  department_info.deptid union
+    ->
+    -> select * from employeeinfo right outer join department_info on employeeinfo.deptid =  department_info.deptid
+    -> ;
++------+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+| id   | name    | emailid           | designation        | mobilenumber | age  | DOB        | DOJ        | salary | deptid | bloodgroup | deptid | departmentname | location |
++------+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+|    1 | nikhil  | nikhil@gmail.com  | software developer |    965471225 |   21 | 1997-12-26 | 2019-05-01 |  28000 |     10 | A+         |     10 | accounting     | banglore |
+|    2 | omkar   | omkar@gmail.com   | software developer |    965474525 |   21 | 1997-10-26 | 2019-05-01 |  28000 |     20 | A+         |     20 | research       | pune     |
+|    3 | sanket  | sanket@gmail.com  | HR                 |    985671236 |   21 | 1997-08-12 | 2019-05-15 |  26000 |     30 | A+         |     30 | sales          | delhi    |
+|    4 | rahul   | rahul@gmail.com   | software developer |    789753936 |   21 | 1997-10-26 | 2019-05-12 |  27000 |     40 | A+         |     40 | operation      | chennai  |
+|    5 | sahil   | sahil@gmail.com   | clerk              |    785275396 |   22 | 1996-10-25 | 2019-04-14 |  14000 |     50 | A+         |     50 | admin          | mumbai   |
+|    6 | rohan   | rohan@gmail.com   | HR                 |    852753936 |   22 | 1996-05-25 | 2019-01-14 |  29000 |     60 | B          |     60 | maintainance   | kolkata  |
+|    7 | pranesh | pranesh@gmail.com | HR                 |    842753936 |   21 | 1997-05-25 | 2019-06-24 |  29000 |     70 | B          |   NULL | NULL           | NULL     |
+|    8 | jay     | jay@gmail.com     | salesman           |    852758936 |   22 | 1996-05-25 | 2019-11-24 |  15000 |     80 | AB         |   NULL | NULL           | NULL     |
+|    9 | anand   | anand@gmail.com   | salesman           |    842153936 |   21 | 1997-05-25 | 2019-01-14 |  15000 |     90 | AB         |   NULL | NULL           | NULL     |
+|   10 | ninad   | ninad@gmail.com   | tester             |    982758936 |   21 | 1997-07-10 | 2019-11-24 |  25000 |    100 | AB         |   NULL | NULL           | NULL     |
+|   11 | satya   | satya@gmail.com   | tester             |    942113936 |   21 | 1997-06-25 | 2019-01-14 |  25000 |    110 | AB         |   NULL | NULL           | NULL     |
+|   12 | vikas   | vikas@gmail.com   | analyst            |    945758936 |   21 | 1997-06-10 | 2019-11-04 |  24000 |    120 | O          |   NULL | NULL           | NULL     |
+|   13 | sid     | sid@gmail.com     | analyst            |    842113936 |   21 | 1997-06-20 | 2019-01-14 |  24000 |    130 | O          |   NULL | NULL           | NULL     |
+|   14 | vinayak | vinayak@gmail.com | analyst            |    945758936 |   21 | 1997-02-10 | 2019-11-04 |  24000 |    140 | O          |   NULL | NULL           | NULL     |
+|   15 | kalpesh | kalpesh@gmail.com | analyst            |    842178936 |   21 | 1997-04-20 | 2019-01-04 |  24000 |    150 | O          |   NULL | NULL           | NULL     |
+|   16 | rahul   | NULL              | NULL               |         NULL | NULL | 1997-02-14 | 2019-01-10 |   NULL |   NULL | 21         |   NULL | NULL           | NULL     |
++------+---------+-------------------+--------------------+--------------+------+------------+------------+--------+--------+------------+--------+----------------+----------+
+16 rows in set (0.00 sec)
+
+						to make autocommit false
+
+mysql> set autoCommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+and then use rollback;
+
+					to savepoint
+
+
+mysql> savepoint x;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into department_info values(90,'management','kochi');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from department_info;
++--------+----------------+----------+
+| deptid | departmentname | location |
++--------+----------------+----------+
+|     10 | accounting     | banglore |
+|     20 | research       | pune     |
+|     30 | sales          | delhi    |
+|     40 | operation      | chennai  |
+|     50 | admin          | mumbai   |
+|     60 | maintainance   | kolkata  |
+|     70 | management     | kochi    |
+|     80 | management     | kochi    |
+|     90 | management     | kochi    |
++--------+----------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> savepoint y;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from department_info where deptid=90;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from department_info;
++--------+----------------+----------+
+| deptid | departmentname | location |
++--------+----------------+----------+
+|     10 | accounting     | banglore |
+|     20 | research       | pune     |
+|     30 | sales          | delhi    |
+|     40 | operation      | chennai  |
+|     50 | admin          | mumbai   |
+|     60 | maintainance   | kolkata  |
+|     70 | management     | kochi    |
+|     80 | management     | kochi    |
++--------+----------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> rollback to a;
+ERROR 1305 (42000): SAVEPOINT a does not exist
+mysql> rollback to x;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from department_info;
++--------+----------------+----------+
+| deptid | departmentname | location |
++--------+----------------+----------+
+|     10 | accounting     | banglore |
+|     20 | research       | pune     |
+|     30 | sales          | delhi    |
+|     40 | operation      | chennai  |
+|     50 | admin          | mumbai   |
+|     60 | maintainance   | kolkata  |
+|     70 | management     | kochi    |
+|     80 | management     | kochi    |
++--------+----------------+----------+
+8 rows in set (0.00 sec)

@@ -1,0 +1,1127 @@
+ data is distinct piece of information
+eg - my name is nikhil and age is 21 
+
+here data name and age
+
+mysql is used to communicate with database
+
+---------------------------------------------------------------------------------------------
+
+				DATABASE
+
+CONTAINER WHERE ALL THE DATA IS STORED
+
+HERE WE CAN ALL 3rd PERFORM OPERATIONS ---------- CREATE,DELETE,UPDATE,INSERT 
+
+----------------------------------------------------------------------------------------------
+				DBMS
+
+a technology to store and retrieve data wih utmost efficiency with apropiate security measures
+
+collection of programs which enables users to access database,manipulate data and represent data
+
+also provides security  with 3rd operations
+
+-------------------------------------------------------------------------------------------------------
+				TYPES OF DBMS
+
+hierarchial DBMS --- it has a style of 'parent-child' relationship to storing data
+		     it has structure like tree with nodes
+
+network DBMS ------supports many t many relations
+		   ususlly results in colplex datastructures
+			eg--rdms
+
+relational DBMS ----defines database in form,tables known as relation
+		    eg- mysql
+
+object oriented --- data stored in form of objects
+		   
+-----------------------------------------------------------------------------------------------------------
+			ADVANTAGES OF dbms
+
+improved data sharing,data security,better interaction with users,increased end user productivity
+
+------------------------------------------------------------------------------------------------------
+			disADVANTAGES OF dbms
+
+increased cost,frequent upgrade,complexity of backup and recovery
+
+-----------------------------------------------------------------------------------------------
+					RDBMS
+
+a dbms which organizes and store the data by following relational model is known as rdbms
+
+IT WAS DESIGNED BY E.F.CODD 
+
+all data here is stored in form of relations
+
+------------------------------------------------------------------------------------------------
+					TABLE
+
+data in r model should be logically organize an stored in form of tables
+
+tables is a logical organization of data it consist of rows and colums
+
+---------------------------------------------------------------------------------------------------
+
+					COLUMNS
+
+ALso known as fields and attribute
+
+column is used to represent properties of entity
+
+------------------------------------------------------------------------------------------------------
+
+					rows
+
+also known as records or tuples
+
+it is used to represent all properties of  entity
+                            
+
+                           id name    emailid address
+			   1  nikhil  askhsfh -----------rows
+		
+			here nikhil ,1 ,dsaff is a cell
+
+----------------------------------------------------------------------------------------------------------
+
+					CELL
+
+intersection of row nd column is known as cell
+
+smallest unit of table which is used to store data   
+
+---------------------------------------------------------------------------------------------------------
+
+in rdbms data can be validated using constraints and datatypes
+
+
+---------------------------------------------------------------------------------------------------------
+					CONSTRAINTS --- aplies restriction on data
+
+NOT NULL
+unique
+primary key
+foreign key
+check 
+default
+
+-------------------------------------------------------------------------------------------------------------
+
+NOT NULL --------- CONSTRAINTS RESTRICT A column from having a null value
+
+unique --------- it should be a unique value and not a duplicate value
+
+primary key ---------- it uniquely identifies each record in database and it is combination of not null and unique 
+			
+			characteristics of primary key 
+
+it cannot accept null value/duplicate value
+table can only have one primary key 
+it is mot mandatory to have a primary key but it is highly recommended its a best practice for creating a table
+
+
+
+foreign key --------- it is used to relate two tables
+
+			characteristics of foreign key
+
+table in which foreign key is present is known as child table
+table in which its actually belongs is known as a parent table
+foreign key must and should be defined as primary key to  its parent table
+columns assign to a foreign key can as accept duplicate and a null value
+we cannot insert a value column defined as foreign key which is not present in parent table column
+
+
+
+check --------------    used to restrict value of column between a range
+			its like a condition before saving data and column
+
+default--------------- used to give default value
+
+----------------------------------------------------------------------------------------------------
+			DIFFERENCE BETWEEN FOREIGN AND PRIMARY KEY
+
+primary key is key cannot accept null and duplicate value and can have only one primary key in table
+foreign key is used to link 2 tables can accept null and duplicate value 
+
+--------------------------------------------------------------------------------------------------
+			DATATYPES
+
+IT IS USually dictated by nature of data and by intended use
+
+pay close attention to expected use of attributes for sorting and data retreival purposes
+
+2 types of datatypes
+
+			
+			1 ------numerical datatypes
+
+			datatype            	RANGE
+	bit               ---------        o to 1
+	tinyint       -----------      0 to 255
+	int            -------------- -2147483648 to 2147483647
+	decimal           ------------   -10^38+1 to -10  
+
+			2 ------------ character and string datatypes
+ subdivided in to char,--------- fixed length with max lenghth of 8000 characters
+varchar,-----------------variable lenghth and has length of 8000 characters
+varchar(max), -----------------variable length it is not supported in mysql
+text-------------variable storage and length of 2 gb
+
+
+char is types is fixed length of memory allocation
+eg ----- we have nikhil  and have 15 memory slots remaining slots get wasted 
+
+varchar is variable lenghth in memory allocation
+eg-  we have nikhil it will only occupy 6 slots in memmory
+
+
+			3-------------------- data and time dataypes
+
+DATE ----------
+time ---------
+datatime -----------
+timestap ---------
+year -------------------    
+
+			4-------------------- miscellaneous datatypes
+
+BLOB ----------------- IT IS used to store picture audio and video
+
+CLOB ------------- CHARACTERLARGE OBJECT
+
+XML----------- FOR STORING XML DATA
+
+jASON-------- FOR JASON DATA
+
+
+---------------------------------------------------------------------------------------------------
+
+while creating a table data types is mandatory to assign to the column but constraints are not mandatory but they are highly recommended to have constraints
+
+
+-------------------------------------------------------------------------------------------------------
+
+IBM was firrst company to develop dbms which followed relational model and known as system r
+
+ibm develop a language to comminicate with systemr in all relational model languge knows n seql due to its simplicity it was very popular at that time
+
+in 1980 ANSI acquired seql language  and after some modification then it is known as sql and met as a standard for rdbms
+
+----------------------------------------------------------------------------------------------------
+
+					SQL
+
+it is case insensitive like html
+
+sql is language and mysql is an application
+
+sql is structured query language developed by E.F.codd
+
+we can modify databesse,add,update ore delete rows of data
+
+rdbms like mysql databeses,oracle,ms sql server,sybase etc uses sql
+
+queries and other sql operations are written as statements
+
+eg- select,insert,add,update,delete,create,alter,truncate
+
+-------------------------------------------------------------------------------------------------------
+						SQL STATEMENTS
+
+			DDL ------------- data defination language
+
+create
+alter
+drop
+truncate
+delete
+rename
+
+
+			DML --------------- DATA manipulation language(dml)
+
+insert update delete
+
+
+DCL -------------------data control language(dcl)
+
+TCL-----------------
+
+					DQL--------------data query language
+
+select
+
+it is used to retreive data from database 
+
+select * from tablename
+
+projection ----------------------------- select particular columnname from tablename 
+
+selection ---------------------------------- if we want to selct or retreive data (selcting by rows) 
+
+select * from tablename ------------- from is used to selct table from database and             -------------  * is select all columns
+
+we can pass tablename as an arguement and select is used too prepare the result set and used to select column ore expression which is under execution and is also responsible to prepare the dataset.
+
+						ORDER OF EXECUTION
+
+from will execute first and then select
+
+joint -------------------------------------- retreival of data from multiple of tables  at same time is known as joint
+
+-------------------------------------------------------------------------------------------------------------------------
+
+				TABLE
+
+CREATE DATABase dtabasename				
+
+show databases
+
+use databasename ---------- to use database
+
+show tables----------- to see tables in ur database
+
+create table student(id int,name varchar(120),emailid varchar(120));----------------- to create a table
+
+
+show tables --------------- to show tables
+
+desc tablename-------------show table content
+
+
+			ADD NEW COLUMN
+
+alter table table_name add column column_name column-defination;
+
+			DROP COLUMN
+
+ALTER table table name column column_name;
+			
+			RENAME COLUMN
+
+ALTER TABLE TABLENAME CHANGE COLUMN YO CHANGE COLUMN NAME OF NEW COLUMN COLUMN DEFINATION
+
+
+			insert
+
+insert into tablename(column name,column name) values(values,values)
+
+		
+					to write data in column
+q--------------- to write data in column
+
+insert into student (id,studentname,emailid,age,address) values(1,nikhil,ladnikhil55@gmail.com,21,mumbai);
+
+				to check data in table
+select * from tablename
+
+update tablename set ccolumn name = values
+
+delete from tablename;
+
+truncate table tablename -------------------------------- use to delete all records 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+						CLAUSE
+
+SQL STATEMANT CONSSIT OF MULTIPLE CLAuse
+
+each clause is subprogram which can accept some arguement
+
+					WHERE CLAUSE
+
+IT IS USED TO FILTER RECORDS 
+
+where clauesis used to xtract only those record that fulfill specific condition
+
+select column name from tablename where condition
+
+eg ----------------------- where country = 'mexico'
+
+where clause does not support insert
+
+truncate is used to delte all data from table 
+
+delete a particular element we use delete command
+
+drop is used to delete struture as well as data we go for drop 
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+					EXPRESSIONS
+
+A STATEMENT WHICH GIVES YOU THE OUTPUT IS KMOWN AS EXPRESSION
+
+C = A+B;
+
+HRE a is operand and + is operator
+
+operTOR ARE OF TWO TYPES 
+
+				1--------LITERALS ------------ LITERAL MEANS ACTUAL VALUE 
+
+THEY ARE OF 3 TYPES
+
+1 NUMBERS---------ONLY NUMBER
+2 CHARACTER ----------- 'NIKHIL' it is case sensitive 
+3 DATE ----------------'2019-12-08' 
+				2---------COLUMNS
+
+------------------------------------------------------------------------------------------------------------------------------
+
+					ALIAS
+
+TO give temporary name to column or table
+
+select column naem as aliasname from tablename ---------------- for column syntax
+
+select columnname(s) from tablename as aliasname------------ for table syntax
+
+
+
+---------------------------------------------------------------------------------------------------
+
+					DISTINT
+
+we will get unique distinct results
+
+select distint column name from tablename
+
+select count(distinct columnname)from table name
+
+if more than one arguement is passed to distint it will remove the combination of column duplicate
+
+---------------------------------------------------------------------------------------------------
+					OPERATORS
+
+IT IS RESERVED WORD CHARACTER USED IN SQL STATEMENTS
+
+4 types of operators
+
+arithmetic         ----------------    +,-,*,/,%
+comparison ----------------------- =,!=,<>,>,<,>=,<=
+logical -------------------------- and,or ,not 
+
+and operator allow the existence of multiple condirions using where clause 
+
+				FOR AND
+
+where a is condtition 1 and b is condition 2 
+
+case1------- if first condition is false and operator will return false without checking second condition
+
+case2=----------  if first conditon is true result depends on first condition
+
+case3------- if both cond is true then op is true
+
+				for OR
+
+case1========== if first condition is true it will give result true  without evaluating the second condition
+
+case2========if first condition is false then it will check for second condition if it is true it will return true value  
+
+Select * from tablename where column name = value or calumn name = value
+
+if we usse  both and and or at same time first and will get executed then or
+
+				for not
+
+except this condition then use not
+
+select * from tablename where not columnname=value;
+
+order of execution is first not then and then or
+
+----------------------------------special operators---------------------------------------------------
+
+		in operator 
+
+in is used for evaluating multiple values 
+
+select * from tablename where columnname in(value1,value2,value3)
+
+		not in operator
+
+it IS MULTI VALUE OPERATOR IT WILL EXCLUDE WHATEVER THE CONDITION WE ARE GIVING
+
+select * from tablename where columnname not in(value1,value2,value3)
+
+		between operator
+
+it will take 3 input arguements
+
+select * from tablename where column name between lowerlimit and upperlimit;
+
+		not between operator
+
+
+select * from tablename where column name not between lowerlimit and upperlimit;
+
+			IS operator
+
+IT IS USED TO CHECK THE NULL VALUE
+
+if record is null it will give true
+
+if record is not null it will give false
+
+		IS null OPERATOR
+
+select 8 FROM TABLENAME WHERE COLUMNNAME IS NULL
+
+		IS NOT NULL OPERATOR
+
+
+select 8 FROM TABLENAME WHERE COLUMNNAME IS NOT NULL
+
+		LIKE OPERATOR
+
+IT I USED TO PERFORM PATTERN MATCHING
+
+SELECT * FROM TABLENAME WHERE COLUMN NAME/string LIKE '   ';
+
+characters are of two types 
+
+1  ordinary character  ---------- a,b,c
+2 special character  ------------ it is also called as wild card character 
+
+		%(percentage) ------- matches 0 to n characters
+		_(undercore)---------- represents only one character-----
+SELECT * FROM TABLENAME WHERE COLUMN NAME/string LIKE '%/_';
+
+		not like operator
+
+SELECT * FROM TABLENAME WHERE COLUMN NAME/string not LIKE '   ';
+ it is used to select all string which donot match with given string
+
+
+---------------------------------------------------------------------------------------------------------------
+
+					FUNCTIONS
+
+IT IS A BLOCK OF CODE WHICH PERFORMS SOME SPECIFIC TASKS
+
+function attributes ---- it has input arguement,functionname and return type
+
+sql has some predefined functon and they are classifiedas 
+
+				scalar function/single row function
+
+here for every input their is an output 
+
+it is divided into two parts case manupalation and character manupalation
+
+in case manupalation their are 2 commands ---------upper(),lower() and initcap()
+
+in character manupalation -------- length,substr,intstr,reverse,concat,replace
+
+upper()
+lower()
+initcap()------ first letter should be capital of each word ---------- it supported in mysql
+
+
+
+length() -----------returns length of field
+concat() ------- it is used to concat two strings 
+reverse() ---- it is used to reverse a string
+substr()---------- it is function used to extract a string from given string,it accepts 3 arguements
+select substr(string,position,length) from tablename
+arguement 1st is string in which we grt new string
+arguement 2  is a number which specifies position in the string
+arguement 3 it specifies length of new string
+
+instr()-- it is used to check whether substring is present n given string or not
+if substring is not present in given strig then function will returnzero
+it is used to check the position
+select instr(string,substring) from tablename
+
+arg1------ string in which substring has to be searched 
+arg2----- what is substring
+
+replace()---------- it is used to replace character ornsubstring in given string
+replace(string,substring1,substring2)
+
+their are more please googlel
+
+				aggregate functions/multi row functions
+
+we pass more then one input but output is only one
+
+avg() --- returns average value
+count() --- counts no of rows
+max() ----returns maximum value of selected column
+min() -----returns minimum calue os selected column
+sum() ---- returns sum of all values of selected columns
+
+
+------------------------------------------------------------------------------------------------------------------
+
+				Groupby
+
+it groups rows that have the same vlaues into summarry rows
+
+it is often uesd with aggrgate functon (count,max,min,sum,avg) t group result set by one or more columns
+
+select * from tablename where condition group by columnname
+
+id name deptid
+
+1 nikhil 10
+2 vikas 20
+3 rahul 30
+4 rohan 10
+5 rehan 20      
+
+after group by 
+
+4 rohan 10 ---------- dept id 10
+1 nikhil 10 ------deptid 10
+
+2 vikas 20---- deptid 20
+5 rehan 20 ------- deptid 20 
+
+3 
+
+
+-----------------------------------note---------------------------------------  
+
+group by executes row by row
+after exceution of gropuby records are grouped therefore all the clause wil execute after execution of group by clause.
+
+order of execution ------- from,where then select
+
+-------------------------------------------------------------------------------------
+				HAVING clause
+
+having clause is often used with groupby clause to filter groups based on specified conditions 
+
+select * from tablename where condition group by column name having condition
+ 
+order of ececution ---- from,where,group by then having 
+
+
+-----------------------------------note---------------------------------------  
+
+having clause executes after the executuo of group by clause therefore it checks given condition after grouping
+
+since it executes after grouping having clause will execute group by group
+
+having clause can be used only in column that is used by group by
+
+-------------------------------------------------------------------------------------------------------
+
+				ORDERBY CLAUSE
+
+ORDERBY IS USED TO SORT RESULT IN ASCENDING OR DESCENDING ORDER if result set os not in ascending or descending order
+
+by default it is ascending order
+
+to de descending order we use desc keyword
+
+select * from tablename order by columnname DESC/asc;
+
+ORDER OF EXECUTION is from,where group  by,having ,select, and then orderby
+
+-----------------------------------------------note-------------------------------------
+
+ order by clause always executes after select clause
+
+order by clause should be always be last clause to be written to the syntax
+
+if group by clause is used then order by clause we can use in aggraget function and only column name used in the group by clause
+
+ 
+-------------------------------------------------------------------------
+
+				install sqlyog
+
+install next next 
+
+10,20,30,40,50,60
+
+deptname-accounting,research,sales,operation,admin,maintainance
+
+banglore,pune,newdelhi,chennai,mumbai,kolkata
+
+ctrl + f9 -- to run query
+
+-----------------------------------------------------------------------------------
+
+					subquery
+
+a query inside another query is known as subquery
+
+it is also known as nested query or innerquey
+
+subquery is also another way to fetch data from multiple tables
+
+whatever inner query we write should be written in (  )
+
+always inner query will get executed first 
+
+output of inner query will be taken as input to outer query final result we will get from the outer query
+
+when to use subquery in where clause
+
+1---------- if give condition contains unknown value rhen we can use subquery to update the unknown value
+
+2---------- if column to be selected and condtition to be filtered for 2 diffrent table we can use subquery
+
+				2 types of subquery
+
+			1 ------------ single row subquery
+
+if single value operators such as equal to less thane,greater than etc are used is known as singlerow query
+
+select column,column from tablename where colomn1 relational operator (select * tablename where exp1=value)
+
+			2-------------- multi row subquery
+
+if operator such as IN is used we call it as multo row subquery
+
+we can return one or more number of rows
+
+select column,column from tablename where colomn1 operator(in) (select * tablename where exp1=value)
+
+-----------------------------------------------------------------------------------------------------------------
+
+					JOINS
+
+join is used to fetch data from two or more tables 
+
+merging of more than one table horizontally is known as joins
+
+we should have atleast 2 tables
+
+								 types of joins
+
+
+
+1------------------------------------------			cross join
+
+it is also known as cartesian join
+
+in these record from one table is merged with each and every record of other table(m * n) ---------m== no of rows in firsttable , n == noof rows in second table
+		or
+join twotables a record from lefttable to each and every record in right table is cross join 
+
+select column name namelist from tablename1 cross join tablename1
+
+eg----     
+table T1                   
+
+A1 	B1
+
+a 	10
+b	20  
+
+
+table T2
+
+A2	B2
+
+C 	30
+D	40   
+
+AFTER CROSS JOINT
+
+A1	B1	A2	B2	
+
+a	10	c	30
+a 	10   	d 	40
+b	20	c	30
+b	20	d	40
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------    
+								innerjoin
+
+joining two tables with help of join column is known as inner join
+
+if table one has same data as table two then only it will give output ootherwise it will not give output
+
+select * from table1 inner join in table2 on condition--------- forsql
+
+select * from table1,table where condition------- for oracle
+
+eg-------------
+
+table T1                   
+
+A1 	B1
+
+a 	10
+b	20  
+c	30
+0
+
+table T2
+
+A1	B2
+
+b 	40
+c	50
+d	60 
+  
+AFTER innerjoin JOINT
+
+A1	B1	A1	B2	
+
+b	20 	b 	40
+c	30	c	50
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								outerjoin
+
+								3 types of join
+
+
+						1------ left outer join
+
+left outerjoins gives inner join + unmatched record of left table
+
+*****note -------- unmatched record is a record who donot have pair in the opposite table with respect to joins
+
+select * from table1 left outer join in table2 on condition--------- forsql
+
+select * from table1,table where table1.columnname = table2.colomnname(+)------- for oracle
+
+eg ----------
+
+table T1  (left table)                 
+
+A1 	B1
+
+a 	10
+b	20  
+c	30
+
+
+table T2 (right table)
+
+A1	B2
+
+b 	40
+c	50
+d	60 
+
+AFTER leftouterjoin JOINT
+
+A1	B1	A1	B2	
+
+b	20 	b 	40
+c	30	c	50
+a	10	null    null   -------- this is unmatched data from left table
+
+
+
+
+								2-------right outerjoin
+
+left outerjoins gives inner join + unmatched record of right table
+
+*****note -------- unmatched record is a record who donot have pair in the opposite table with respect to joins
+
+select * from table1 right outer join in table2 on condition--------- forsql
+
+eg ----------
+
+table T1  (left table)                 
+
+A1 	B1
+
+a 	10
+b	20  
+c	30
+
+
+table T2 (right table)
+
+A1	B2
+
+b 	40
+c	50
+d	60 
+
+AFTER leftouterjoin JOINT
+
+A1	B1	A1	B2	
+
+b	20 	b 	40
+c	30	c	50
+null	null	d	60  -------- this is unmatched data from right table
+
+
+
+
+								3-----full outerjoin
+
+full outer join gives inner join as well as all record from both the table which does not match
+
+full outerjoins gives inner join + unmatched record of right table as well as left table 
+
+we have to write union here
+
+								4-- SELF JOIN
+
+The SQL SELF JOIN is used to join a table to itself as if the table were two tables; temporarily renaming at least one table in the SQL statement.
+
+SELECT a.column_name, b.column_name...
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								
+
+								KEY IN RDBMS
+
+						
+									
+a key attribute is used to find an attribute(columns) using which we can uniquely determine a record in a table
+
+a nonkey attributes --- all attributes  except key attributes are knowns as non key attributes
+
+prime key attributes ---------- a key attribute which is chosen to be a main attribute to determine record uniquely in the table
+
+non prime key attributes ----- a key attributes which is not chosen to be a main attribute to determine record uniquely in the table
+
+composite key attributes-- combination of 2 or more attribute which determines record uniquely is known as composite key attributes.
+
+foreign key attribute----- a key which  is used to relate two tables 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							FUNCTIONAL DEPENDENCIES
+
+IN functional dependency relation exis such that an attributes determine another attributes uniquely is known as functional dependencies
+
+eg--- inner query
+
+R  -> { x,y}
+
+here x and y is an attribute 
+
+x is determinant and y is dependent
+
+eg -- 
+
+id 	name
+
+1	a
+2	b
+
+here id is primary key we can get data of table by calling id directly 
+
+							types of functional dependencies
+
+							1------ total functional dependency
+
+ALL THE ATTRIBUTES OF A RELATION is determined by a key atribute is known as totally functional dependency
+
+eg -------- 
+
+r1 -> { a,b,c,d }
+
+here a-> b,c,d
+a->b
+a->c
+a->d
+
+
+							2 ------ partial functional dependency
+
+relation is set to have partial functional dependency if 
+
+1-------it consisit of composite key attributes
+
+2--------their exist a dependency such that an attribute can be determined by which is part of composite key
+
+r1 -> { a,b,c,d }
+
+here a and b is composite key
+
+(ab) ->c,d
+(ab) ->c
+(ab) ->d
+ a->c
+
+							3-------transitive functonal dependencies 
+
+relation is set to be transitive functional dependeny if their exist an relation such that an attribute is determined by non key attributes which in turn is determine by a key attribute
+
+eg------
+
+r1 -> { a,b,c,d }
+
+a -> c
+
+c -> d
+
+a -> d  // indirectly a becomes dependent on d because of c
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+									NORMALIZATON
+
+ 
+why we go for normalization
+
+1-------- if one id has lot of other data then when we change the data of one attribute it will change all attribute this is drawback so we go for normalization
+
+sideeffects that occur while performng DML operation is known as anamoloy 
+
+redundencies
+
+types of anamoly is insert update delete
+
+
+normalization is a process of decomposing a table in smaller table in order to remove redundency and anamolies by identifying dependencies is known as normalization
+
+the process of reducing a table to normal form is known as normalization
+
+								NORMAL FORM
+
+a state of table without a table redundencies and anamolies is known as normal form
+
+							types of normal forms
+
+							1--- first normal form
+
+a table is set to be in first normal form if they satisfy the following condition
+
+1----- table should not have duplicate rows
+2------ every cell in the table should be a atomic value
+
+
+							2--- second normal form
+
+tables are said to be second  normal form if they follow the conditions
+
+1---- table should not have duplicate values and it should follow 1st normal form
+
+
+2----- table should not have composite key(partial dependencies)
+
+*****note ------- if the table consist partial functional dependency attribute which are responsible are removed from the table
+
+
+
+							3--- third normal form
+
+table are said to be third normal form if following conditions are satisfied
+
+1-------- it should follow second normal form
+
+2----it should not have transitive functonal dependencies
+
+*****note ------- second,first,third normal form are based on key attributes/functional dependencies of relational schema
+
+							4--- bcnf normalform
+							5--- fourth normal form
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							
+							ER diagram
+
+er is entity reLATIONSHIP
+
+it describes the structure of database with the help of diagram which is known as er diagram
+
+er diagram is a blue print of database that can latter be implemented to implement the database
+
+						COMPONENT OF ER DIAGRAM
+
+1------- ENTITY--------- IF WE HAVE RECTANGLE BOX THEN ITS ENTITY(TABLE)
+2------ ATTRIBUTE ---------ELLIPSE REPRESENTS THE ATTRIBUTE
+				AND WHEN WE ADD LINE IN ELLIPSE IT IS A PRIMARY KEY
+3------RELATIONSHIP -------------IF WE HAVE A DIAMOND STRUCTURE IT IS RELATIONSHIP
+
+-- SINGLE LINE LINK ATTRIBUTES TO ENTITY SET AND ENTITY SET OR RELATION SET
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							relationship
+
+1------one to one 
+2------one to many
+3------many to one
+4------many to many
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						VIEW
+
+it is a virtual table
+
+IT IS A logical or virtual tables that can be created from existing table
+
+view do not occupy memory  
+
+create view viewname as select * from tablename
+
+to execute view select * from viewname
+
+always change the viewname
+
+*******note --- any dml operation perform on view the base table it will get reflected
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								TCL
+
+TRANSACTION CONTROL LANGUAGE
+
+ROLLBACK -----same as undo
+first we should make autocommit=0;
+
+commit ------we should not use rollback after commit
+in commit it commit changes
+
+savepoint------they ususally work with roleback
+
+savepoint anyname;
+
+rollback to savepointname;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								STOREPROCEDURE
+
+WHEN WE WANT TO IMPLEMENT ONE SPECIFIC QUERY WE WILL KEEP IT IN STOREPROCEDURE AND CALL THAT STOREPROCEDURE
+
+it is a collection or group of sqp statementsstored in databases datat dictinary and called from either a remote program
+
+A STORED PROCEDURE IS A PREPARED SQL CODE THAT U CAN SAVE SO CODE BE REUSED OVER AND OVER AGAIN
+
+stored procedure are also called as SP's
+
+STOREDPROCEDURE FEATURES AND COMMAND SYTAX ARE SPECIFIC TO DATABASE ENGINE  
+
+call storeprocedurename;
+
+**********SYNTAX----
+
+Delimiter$$
+create procedure <procedure Name>
+as
+begin
+<sql statement>;
+End$$
+Delimiter;
+
+
+call storeprocedurename;// to call storeprocedure
+
+ 
+
+
+

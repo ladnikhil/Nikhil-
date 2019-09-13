@@ -1,0 +1,1128 @@
+ java was first known as oak after they named it as java 
+
+was developed by sun microsystem
+
+java is platform independent
+
+it is case sensitive
+
+
+after compiling it can run on any other os only if that os has a JRE
+
+				
+				3 diff editions of java
+
+java se(standard edition)-- to develop standalone applications
+
+java me (micro edition)----------- for devices which are small in size  eg-- calculators
+
+java ee (enterprise edition) -------------- to develop web application
+
+---------------------------------------------------------------------------------------------------------
+
+					JRE
+
+jre is java runtime environment
+
+it converts bytecode into machine level language
+
+their are 3 sections here
+
+here src is filename
+							JAVAC(java compiler)										execution
+
+write source code ---------------------------- javac checks for any syntactical errors or any rule has been violated ------------------- to execute file command is -- java src
+and save that 				       with command -- javac src.java 
+source ode file 				if error it throws compile time error 
+with src.java extension 			if no errors it converts.java file to src.class file
+gives src.java as input to javac 			gives src.class as a output
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+					JVM
+
+JAVA VIRTUAL MACHINE
+
+jre enables us to  use jvm 
+
+jvm then runs any of .class files
+
+---------------------------------------------------------------------------------------------------------------------
+
+				java program
+
+first we have declaration
+
+we should have same classname and same file name if class is public
+
+declaration{
+
+defination 
+}
+
+public class class_name{
+
+statements......;
+statements.....;
+}
+
+
+BY USING JAVAP CLASSNAME.JAVA ----- WE CAN SEE ALL METHODS IN CLASS
+
+if we make any changes we need to recompile the program again and run it
+
+for compilation ------ javac filename.java
+
+for execution  --------- java filename
+
+.class files contains byte code
+
+byte code is not understood to users and machine
+
+but then JRE converts bytecode into machine level language
+
+---------------------------------------------------------------------------------------
+					objects
+
+java is object oriented programming language
+
+they are elements of program that has some data are also known as state
+
+objects also have behaviours which means they can perform certain operations and those behaviours in java is called as methods
+
+Serialization is a mechanism of converting the state of an object into a byte stream.
+
+Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory
+
+----------------------------------------------------------------------------------------------
+
+					KEYWORDS
+--------
+THEY have predeifined meaning inside programming language
+
+keywords present in java are 50 and their are addtional three literals(TRUE,FALSE,GROUP) which can be termed as keywords 
+
+----------------------------------------------------------------------------------------------------
+
+					IDENTIFERS
+
+A NAME GIVEN TO class or method is said to be identifier
+
+				rules to create identifier
+
+1---it should always start from an alphabet or letter it cannot start from a digit
+
+2----- but it can have n number of digit after declaration of an alphabet at starting
+
+3-------they are also case sensitive and u cannot give keyword as an identifiers
+
+4------- only special character allowed are $ and _ 
+
+5----------- we cannot have spaces betweeen identifiers
+
+------------------------------------------------------------------------------------------------------------------------
+
+					VARIABLES
+
+IT IS A piece of memory with a given name
+
+a variable can contain a daata inside it
+
+every variable sould have a datatype
+
+datatype variablename;        // declaration
+
+var = value; // initialiazation 
+
+System.out.println(var);     //utilaization
+
+------------------------------------------------------------------------------------------------------------------
+					DATATYPE
+
+TYPE OF DATA THAT WILL BE STORED INSIDE MEMORY LOCATION
+
+					TYPES OF DATATYPES
+
+1-------------------------------------primitive datatypes --------already defined by programming language
+
+it has 8 prmitive datatypes
+6 of them are for digits
+2 are char and boolean
+
+	    DATATYPES      	 WORK		    		SIZE   			RANGE
+
+a---------- byte --------- contains numeric value ------- -----8 bits ---- ---------127 to -128
+
+b---------- short----------contains numeric value --------------16 bits---------- -32767 to 32768
+
+c-----------int -----------contains numeric value ----------32 bits ------------ -2million to 2million
+
+d-----------long -----------contains numeric value ----------64 bits ------------ -9billion to 9billion 
+
+e-----------double  -----------contains numeric and decimal(15 digits after decimal point) value ----------64 bits ------------ 
+
+f-----------float  -----------contains numeric and decimal(only six/seven digits after decimal point) value ----------32 bits ------------ 
+
+g----------char -------- contains character and stores one character at a time  ------------------16bits-----------
+
+f-------- boolean-------- it contains only true or false----------------16 bits
+
+
+
+
+2--------------------------------------reference datatypes-------- when we want to write our own data
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+						OPERATORS
+
+AN operator is a special symbol or keyword that is used to designate a mathematical operation or some other type of operation,this operations can be performed on one or more than one values
+called as operands
+
+						ARITHMETIC OPERATORS
+
++ --- ADDITIVE TYPE OPERATOR
+- --- ADDITIVE TYPE OPERATOR
+
+* ----- MULTIPICATIVE TYPE OPERATOR
+/ ----------- MULTIPICATIVE TYPE OPERATOR
+% ----------- MULTIPICATIVE TYPE OPERATOR
+
+						compound assignment operators
+
++=
+-=
+*=
+/=
+%=
+
+						INCREMENT AND DECREMENT OPERATOR
+
+THEY ARE ALSO CALLED AS URINARY OPERATOR
+
+(++) ----------- INCRESES BY 1
+(--) -----------DECREASES BY 1
+
+					PREINCREMENT OPERATOR 
+
+INT I =10;
+++i;
+
+increment then substitute that value and then utilize
+
+
+					POSTINCREMENT OPERATOR
+
+INT J = 10;
+j++;
+
+substitute then utilize then increment
+
+					RELATIONAL OPERATORS
+
+THEY ARE ALSOCALED AS COMPARISION OPERATORS
+
+==  --------- returns true when both sides of equation are equal else returns false
+!=  --------- return true if both side of equations are not equal to
+<   -------- returns true if left side of equation is less then right side of equation lhs<rhs
+>   -------- returns true if left side of equation is greater then right side of equation lhs>rhs
+<=  -------- returns true if left side of equation is less then equal to right side of equation lhs<=rhs
+>=  -------- returns true if left side of equation is greater then equal to right side of equation lhs>=rhs
+
+relational operator always returns  a boolean value
+
+					LOGICAL OPERATORS
+
+LOGICAL OPERATORS ALSO RETURNS BOOLEAN VALUE
+
+not (!)  ----- it is unary operator it returns false if right hand side of operator is true
+and (&&) ----- not an unary operator if both inputs are true then only it returns true
+or (||) ------- not an unary operator  if any of input is true it returns true value
+
+					BITWISE OPERATORS
+
+& ---------
+| -------- 
+^ ---------- if changes in input then it gives one otherwise zero
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+					CONTROL FLOW STATEMENTS
+
+					IF STATEMENT
+
+ IF statement gets executed if if condition is true otherwise it does not get executed
+
+if(boolean condition){
+	statements..;
+	stetaments..;
+}
+
+					IF-ELSE STATEMENT
+
+IF IF statement doesot get executed then else statement gets executed
+
+if their is one condition then we can neglect {} from syntax but we hacve multiple statements we have to write {}
+
+					ELSE-IF STATEMENT
+
+WE GO FOR ELSE-IF WHEN WE HAVE MORE THEN ONE BOOLEAN CONDITIONS THAT NEEDS TO BE SATISFIED
+
+WE GO FOR ELSEIF WHENEVER WE HAVE MULTIPLE CONDITONS
+
+					SWITCH
+
+HERE WE ONLY CHECK FOR EQUAL OPERATOR
+
+hee we use break statements
+
+if we write default in first we should compulsory write break statemnt
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+					LOOPING STATEMENTS
+
+							for loop
+
+for(initialization;test conditions;increment/decrement operators)
+{
+	statements .....;
+
+}
+
+							flow of for loop
+
+1------ thier is initialization and it happens only ones
+
+2------- then it will check test condition if it is true then it will increment or decrement the operator 
+
+3--------- after that it will again check condtition and work same procedure till condtition is true
+
+4-------- if condition is false it will come out of the loop
+
+when we have statement write +
+
+we can write increment/decrement operator in for loop or inside forloop
+
+System.out.println("27*"+i+"="+(27*i));---------------+i+ is written here additional + is written becoz we have statement after that
+
+if we write any statement after infinite loop we will get an error
+
+
+
+
+							WHILE LOOP
+
+while(condition){
+	statements;
+
+}
+
+						FLOW OF WHILE LOOP
+
+1---- IF CONDITION IS TRUE IT WILL COME INSIDE LOOP
+
+2---- IF condition is false it will not enter loop
+
+3---- write increment/decrement operator inside whileloop and initialization should be done outside the loop
+
+4-- if we do not declare inc/dec operator it will become infinite loop
+
+
+
+							DO WHILE LOOP
+
+do{
+
+}
+while(condition);
+
+first do cndtion will compulsory get executted then it will check the condition
+
+
+------------------------------------------------------------------------------------------------------------------------------
+					METHODS
+
+NAMED BLOCK OF CODE THAT IS SPECIFIC TO A PARTIULAR TASKS
+
+method always start with small letters
+
+DECALARATION{
+
+DEFINATIONS
+}
+
+PUBLIC STATIC VOID MAIN(STRING []ARGS)
+
+PUBlic is access specifier
+
+static is access modifiers
+
+void is return type
+
+main is method name
+
+public static void main(arg list){                             -------------------- declaration
+	defination
+}
+
+					access specifier
+
+it tells the visibility of any of the code component
+
+					access modifiers
+
+it tells us that about component that it belongs to class or objects
+
+					return type
+
+return type it can be any primitive datatypes or void or any reference datatype
+
+if return type is anything other then void then we have to write return in method
+
+
+-----------------------------------------------------------------------------------
+
+method will only execute if it is been called by passing required arguements
+
+method which is being called is known as called method 
+
+method which is calling is known as calling method
+
+arguements passed can be empty or primitive datatypes or reference datatypes
+
+we can only create a method inside a class
+
+calling function from othher file -------------------------- classname of that file.method name we want to call
+
+-----------------------------------------------------------------------------------
+
+					ecclipse
+
+file new java project -
+
+in src file we can creatr various folders
+
+if we want to create pacakages we use com and edu
+
+com.dev is package name
+
+for proper alignment ctrl a and ctrl i
+
+sout ++ ctrl space -- for system.out.println
+
+--------------------------------------------------------------------------------------------------
+
+					ARRAYS
+
+ARRAY IS GROUP OF HOMOGENOUS DATA THAT HAS SOME INDEX WITH FIXED SIZE
+
+INDEXES ARE USED TO PLAY WITH DATA IN ARRAYS
+
+INDEX OF AN Array will always start from zero
+
+size - 1 = index
+
+syntax for array --------------  datatype []arrayname ; / datatype arrayname[];/datatype arrayname[];
+
+				creation of array
+
+arrayname = new int[size];            // new keyword is used to create anobjects
+
+				Initialization
+
+arrayname[index] = value;
+
+				initialization and creation at one time
+
+datatype[] arrayname = new datatype[]; 
+
+array size should not be excluded it wil give u an error
+
+arrayname.length ----------- here length is variable and gives size of a array
+
+char c = 'a';
+char[] c = new char[15]
+
+----------------------------------------------------------------------------------------------------------------------
+
+					STRING
+
+string is a sequrnce of characters
+
+string is immutable
+
+it is userdefined datatypees
+
+STRING IS CHARACTER ARRAY
+
+INTERNALLY STRING USES CHARACTER ARRAY
+
+				creating a string
+
+string variablename = "hello";
+	or
+string variablename;
+
+variablename = value;
+
+	or
+
+string variablename = new string("hello");
+
+---------------------------------------------------------------------------------------------------------------------------
+
+					REFERENCE TYPE
+
+String str = new String(" ");
+
+here str is a reference type variable it stores address of that particular object and not data
+
+it is a type that is based on class (java class) rather then a primitive dataatype
+
+a reference type can be based on predifined classes in java or classes defined by programming or developer
+
+with new keyword is used to create an object
+
+here reference variable does not contain data of object it contains address of object
+
+-------------------------------------------------------------------------------------------------------------------------
+					static and non static
+
+						STATIC
+
+ANY member of the class that has been declared as keyword static is a static member
+
+want to use static class of one class to another class we does not need to create an object to access it , we can directlt access that static members
+
+if member is static it belongs to a class
+
+						NON STATIC
+
+any member of class that has been declared as keyword nonstatic is non static member
+
+if we eant to use non static class memberss from one class to another class we need to create objects of its class to access that non static function
+
+if a member s non stati it belongs to object of that particular class
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+						VARIABLES
+
+					2 DIFFERENT TYPES OF VARIABLE
+
+1-------LOCAL  
+
+
+VARAIBLE CREATED WITHIN SCOPE OF A METHOD  IS LOCAL VARIABLE AND CAN BE USED WITHIN THE METHOD
+
+			A----- PRIMITIVE TYPE
+			B-----REFERENCE TYPE
+
+
+
+2-------GLOBAL
+			A----- PRIMITIVE TYPE ---- IT IS FURTHER DIVIDED INTO STATIC AND NON STATIC
+			B-----REFERENCE TYPE ---- IT IS FURTHER DIVIDED INTO STATIC AND NON STATIC
+
+					Instance Variables: 
+
+Instance variables are non-static variables and are declared in a class outside any method, constructor or block.
+
+VARAIBLE CREATED WITHIN SCOPE OF A CLASS IS GLOBAL VARIABLE  AND CAN BE USED ANY WHEER WITHIN THE CLASS
+
+BY USING JAVAP CLASSNAME.JAVA ----- WE CAN SEE ALL METHODS IN CLASS
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+						CONSTRUCTOR
+
+every class should have a contructor
+
+IT IS A SPECIAL TYPE OF METHOD AND IT DOES NOT HAVE A RETURN TYPE AND IT HAS SAME NAME AS CLASS NAME
+
+IF WE DO NOT CREATE ANY CONSTRUCTOR COMPILER WLL BY DEFAULT CREATE A CONSTRUCTOR and it is known as default contructor
+
+IF WE CREATE A CONTRUCTOR BY OU OWN THEN COMPILER DOES NOT CREATE CONSTTUCTOR BY DEFAULT
+
+WHWENEVER WE CREAATE OBJECT OF A CLASS A CONTRUCTOR IS INVOKED
+
+if we want to call contructor we need to create object
+
+BY USING JAVAP CLASSNAME.JAVA ----- WE CAN SEE ALL METHODS IN CLASS
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+							CONSTRUCTOR OVERLOADING
+
+when we create same constructor with different input arguements is known as constructor overloading and should have same class name
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if we want to access a class from one package to other package we need to import that package
+
+we can call another class in other class if it is same method 
+
+but if is not their in same package we neeed to import that packagee
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+							ACCESS SPECIFIERS
+
+CONTROLS VISIIBILTIY OF MEMBER
+
+								PUBLIC
+
+whenever we declare member as public it can be used as another class/program/package
+
+								PROTECTED
+
+whenever we declare any menmbers as protected it cannot be accessed by another package but we can use it in same package
+
+we can alos use it in different package but their is some condition
+
+
+
+								DEFAULT/PACKAGE LEVEL
+
+if we do not write any access specifier then it is default or package level access specifier and it cannot be inherited
+
+								private
+
+if we declare any members as private it cannot be accessed by any ottehr package and class
+
+we can use private only use that within theh class
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								ASSOCIATIONS
+
+ASSOCIATION IS NOTHING BUT RELATON BETWWEN TWO CLASSES
+
+association in java is relationship between two different classes
+
+					different types of association
+
+1------- one to one  
+
+2-----  one to many 
+
+3 -------- many to many
+
+4 -------- many to one
+
+					in java
+
+			1-------- as a relation ------- aggregations,composition
+
+					aggregation
+
+when one class existence is not dependent on another class is known as agregation
+
+					composition(is a relation)
+
+existence of one class is very much dependent  on another class eg-----inheritance
+
+
+				2------- is a relation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------								
+
+
+								INHERITANCE
+
+
+ACQURIING PROPERTY FROM SOMEONE IS KNOWN AS INHERITANCE
+
+THE PROCESS by which one class acqquires the proprties and functionalities of another class is called as inheritance
+
+the aim of inheritance is used to provide reusibility of code 
+
+extends helps us to acquire property from some other class
+
+a class whose properties or functionalities are been inherited by some other class is known as parent classs or superclass or base class
+
+a class that inherits propertirs or functionalities from another class is known as child class  or subclass or derived class
+
+for inheritance in java we have to make use of extends keyword 
+
+you can access the properties of both superclass and subclass using object of subclass
+
+final classes cannot be inherited
+
+final members of a superclass can be inherited but cannot be changed
+
+private members and constructors of superclass cannot be inherited
+
+we cannot extend 2 classes at same time
+
+							TYPES OF INHERITANCE
+
+							SINGLE INHERITANCE
+
+WHEN ONE CLASS ACQUIRES PROPERTIES OF SOME OTHER CLASS IS SINGLE INHERITANCE
+				
+							MULTI-LEVEL INHERITANCE
+
+2 or more level inheritance is multilevel inheritance
+
+ 							multiple inheritance
+
+it is not supported in java because every class can have same function and after caling that function compiler will get conf use and throw anerror
+
+							hierarchial inheritance 
+
+two classes acquiring property from same parent class  
+							hybrid inheritance
+
+mixture of two or more then one inheritance
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							SUPER
+
+IT HELPS US TO ACCESS DATA IN IMMEDIATE SUPER CLASS
+
+super keyword refers to the object of immediate parent or super class
+
+to access the data member of parent class when both child and parent class have the data member with the same name
+
+if we donot hav emember in that class then it will take supermost classss propertities
+
+we can invoke contructor of immediate parentclass IF NOT IT INVOKES its parent class
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							Method overriding
+
+declaring a method in child class which has already been declared in parent class is known as mehod overriding
+
+method overriding is done to provide implementation specific to a child class
+
+METHOD OVEERRIDING is a type of polymorphism
+
+method overriding as an example of runtime polymorphism
+
+
+					advantages of method overriding
+
+advantage of method overriding is that you can provide implementation to chld clas method without changing the code present in the parent class
+
+we neeed to write @overwrite method to override 
+
+WE HAVE TO COMPULSORY WRITE @OVERWRITE
+
+we cannot override private method
+
+if we use final keyword method the method can be overrided but cannot be changed
+
+we cannot overwrite child methods
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							METHOD OVERLOADING
+
+it is feature in java that allows us to have same methods (Samename) in single class more then once provided arguements list differ in
+
+1---- no of parameters
+
+
+2----- order of parameters
+
+3------- datatypes of parameter
+
+
+method overloading is an example of compiletime polymorphism
+
+wap that performs basic arithmetic operations having different arguement list
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							POLYMORPHISM
+
+WHEN SINGLE ENTITY working diffferently for different classes and objects is known as polymorphism 
+
+					two types of polymorphism 
+
+1--------- runtime polymorphism---------METHOD OVEERRIDING--------also known as late binding/dynamic binding
+
+2 --------compiletime polymorphism---------method overloading------- also known as early binding/static binding
+
+
+
+one single entity can take various forms
+
+METHOD OVEERRIDING is a type of polymorphism
+
+method overriding as an example of runtime polymorphism
+
+method overloading is an example of compiletime polymorphism
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							ABSTRACTION
+
+HIDING THE IMPLEMENTATION DETAILS BY JUST PROVDING THE FUNCTIONALITIES 
+
+							ABSTRACT CLASS
+
+ANY CLASS DECLARED BY ABSTRACT KEYWORD THAT PARTICULAR CLASS IS ASBSTRACT CLASS
+
+any method that has been declared with the abstract keyword is known as abstract method
+
+abstract method does not have a body 
+
+abstract classes can have both abstract methods as well as concrete concrete methods
+
+any class having an abstract method should be declared as abstract
+
+if a class is not abstract then its not compulsory that it must have abstract mehod
+
+if class declared as abstract then that classshould be extended by childclass
+
+we cannot create objects for abstract class but we can create an constructor
+
+we have to override each and every abstarct method of parent in child class
+
+we can achieve 0 to 100% abstraction from abstract class
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							INTERFACE
+
+INTERFACE IS JUST LIKE AN ABASTRACT CLASS iwth only declaration and no implementation
+
+if a class wants to get properties of interface we shoul use implements keyword
+
+any method created inside interface will be by default abstract method and public
+
+any datamember inside interface is final and static by default
+
+IN INTERFACE WE ONLY DECLARE STATIC CONCRETE METHODS
+
+WE SHOULD DECLARE METHOD WITH EITHER DEFAULT OR STATIC KEYWORD THEN ONLY WE CAN DECLARE CONCRETE METHODS
+
+WE CAN IMPLEMEMT 2 OR MOREE THEN 2 INTERFACES AT THE SAME POINT
+
+AND BY DEFAULT ACCESS SPECC=IFIER WILL BE PUBLIC 
+
+we can use public/static and final keyword and initialize variable in interface
+
+when we interface between two interfaces we use extends keyword
+
+	eg --------- public interface Abs3 extends Abs2 
+
+			interface can be of 3 types
+
+1------------- functional interface
+
+		only single abstract method and can have multiple concrete methods
+
+		we need to have @Functionalinterface
+
+2----------- marker  interface
+
+		when we do not have any method is known as marker interface
+
+3------------- typical interface 
+
+		when we have more then one method is known as typical interface
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				ABSTRACT 								INTERFACE
+
+
+WE USE ABSTRACT KEYWORD TO DECLARE ABSTRACT METHOD					INTERFACE HAS BY DEFAULT ABSTRACT methods AND IT WILL BE PUBLIC
+
+WE CAN CREATE A CONSTRUCTOR IN ABSTRACT CLASS						WE CANNOT CREATE A CONSTRUCTOR IN INTERFACE 
+
+IN ABSTRACT CLASS WE CAN DECLARE CONCRETE METHODS					IN INTERFACE WE ONLY DECLARE STATIC CONCRETE METHODS
+								
+HERE WE USE EXTENDS KEYWORD 								HERE WE USE IMPLEMNETS KEYWORD							
+
+WE CAN ONLY EXTEND ONE CLASS AT A TIME							WE CAN IMPLEMEMT 2 OR MOREE THEN 2 INTERFACES AT THE SAME POINT
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								ENCAPSULATION
+
+hidding the data mmembers and provide accessibillity through some public members
+
+getters method are used to access private data members and they are read only
+
+setters will help us to manipulate the data and they are write only  
+
+encapsulation is a mechanism with which we wrap up the data members and function members into a single object
+
+we use encapsultion if we want to hide the data also known as data hiding
+
+class which contains data members are known as beans/pojo
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								PACKAGES
+
+fully classified class name contains package as well as its class
+
+eg ------- com.dev.abstraction.Dog
+
+we can have 2 classes of same name but we need to import packeges from where it belongs
+
+						ADVANTAGES
+
+1----here we can organize code in proper manner 
+
+2------we can use that code reusibility
+
+if we need to have classes of same name from different packages we need to import that
+
+eg ---- package com.dev.methods;
+
+import com.dev.encapsulation.Dog;
+
+public class Demo {
+	
+	Dog d = new Dog(); /// here we have dog class from encapsulation package
+	
+	// but we also want class of do from constructor and  we need to copy fully classified name of class and then import
+	
+	com.dev.constructors.Dog d1 = new com.dev.constructors.Dog();  // this is new object and this class is from constructor
+	
+	}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								FINAL KEYWORD
+
+final keyword is used when value we cannot change it and cannot be reinitioalized
+
+when we declare any final variable we give that variable in block letter
+
+fibal methods cannot be overriden
+
+if class is final we cannot inherit that class
+
+but final class can extend normal class
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							OBJECT CLASS
+
+in java each and every class directly or indirectly inherits the properties of object classs i.e object class is the supermost class in java
+
+each and every class either a predefined class or a user defined class is a child class of object class 
+
+					methods of object class
+
+						below methods are used in objects class
+
+1------------getClass() ----------------returns class qualified name
+		
+2------------clone()-----------clone an object create an object and return an object
+
+3-----------equals-----------it compares two objects and its returntype is boolean we shoul override methods and then use equals
+
+4-----------toString--------- conver
+
+
+							below methods are used in threads
+
+5-----------wait()
+
+6----------wait(long)
+
+7----------wait(long,int)
+
+8----------notify()
+
+9----------notifyAll()
+
+							below methods are used in garbage collector
+
+10--------finalize()------- it is invoke as soon as execution of program ends
+
+11--------hashcode() ---------- when we deal with hashmaps and its return type is integer
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								STRINGS
+
+STRING IS A REFERENCE TYPE
+
+string variable holds a reference to an object from string class
+
+eventhough they are primitive types java compiler has some features designed to let work with strings almost as though they were primitive types
+
+we can combine or concatenate string using + operator
+
+string is only class where operator overloading is supported 
+
+***********string is immutable.an immutable object is an object that once created can never be changed
+
+***********string class is most common example of an mutable objects
+
+					string pool contains 2 parts
+
+1----- constant pool ---------- duplicates are not allowed 
+
+2------- non constant pool---------- duplicates are allowed 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							STRINGBUILDER AND STRING BUFFERCLASSES
+
+							inefficiency of string
+
+STRING CLASS IS POWERFUL CLASS but not that efficient
+
+as string objects are immutable any method of string class that mdifies the string in any way must create a new string object
+
+toovercome this problem java offers 2 alternatives to string class s tringbuilder and stringbuffer class
+
+
+							STRINGBUILDER AND STRING BUFFERCLASSES
+
+both are mutable
+
+STringbuilder and string buffer classes are mirror images both have same methods and perform same string manupalation
+
+only difference betwwen stringbuilder and string buffer is that stringbuffer is thread safe whereas stringbuilder is not threads safe and littlebit more efficient then stringbuffer
+
+							constructors of stringbuffer and stringbuilder
+
+1------constructor string buffers/stringbuilder with no character in it and an initial capacity of 16 characters
+
+eg-public stringbuffer(){
+	super(16);
+}
+
+2-------constructor string buffer/stringbuilder with no characters in it and specified initial capacity
+
+eg--- public stringbuffer(int capacity){
+	super(capacity);
+}
+
+3----------------it costrtucts a string buffer/stringbuilder initiaized to contents of specified string.initial capacity of string buffer is 16  plus length of string arguements
+
+4-----------------it constructs a string buffer/stringbuilder that contains same characters as specified charactersequence.initial capacity of string buffer is 16 plus length of aruguements
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+					
+								EXCEPTION
+
+excecption is an error event that can happen during execution of a program and disrupt its normal flow of ecexution
+
+exception will always occureed at runtime  
+
+
+								EXCEPTION HANDLING
+
+exceptions in jva can arise from different kind of situations such as wrong data entered by user,hardware failure,network connection failure,database server down etc
+
+whenever an error occurs while executing a atstement,creates an exception object and then normal flow of program haults and jre tries to find someone that can handle raised exception
+ 
+exception object contain a lot of debugging information such as methods hierarchy,linenumber where exception occured,type of exception etc  
+
+********** process of creating exception object and handling it over to runtime environment is called throwing the exception
+
+**********if appropiate exception handler is found exception object is passed to handler to process it.methpd is said to be catching an exception
+
+******** java exception handling is a framework tha t is used to hnadle runtime errors only,compile time errors are not handled by compiletime errors
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							*********note*****************
+							
+							2 types of exceptions
+
+							**********Checked exceptions -(compiletimeexceptions)
+
+ A checked exception is an exception that is checked (notified) by the compiler at compilation-time, these are also called as compile time exceptions
+
+For example, if you use FileReader class in your program to read data from a file, if the file specified in its constructor doesn't exist,
+ then a FileNotFoundException occurs, and the compiler prompts the programmer to handle the exception.
+
+it will give u warnings
+
+
+							**********Unchecked exceptions -(runtimtexceptions)
+
+ An unchecked exception is an exception that occurs at the time of execution. These are also called as Runtime Exceptions.
+ These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.
+
+For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then an ArrayIndexOutOfBoundsExceptionexception occurs.
+
+it will not give u warnings  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+			errors										exception
+
+this is problem occured during compile time				this are problem occured during runtime and can be handled by exception handling
+
+
+					*******************************exception keyword***************************
+
+throw ------------------- if we want to create exception on our own
+
+throws------------------ if we want to call predefined exception we use throws here it may or maynot throw an exception
+
+		we can provide multiple exception at sametime
+
+		 whn we use throws keyword we need to write throw exception in front of method
+
+		You just need to extend the predefined Exception class to create your own Exception. 
+
+		 whn we use throws keyword we need to write throw exception in front of main method also
+
+finally--------------- it will get executed no matter what exception is and is written with try and catch block
+
+			whenever we have unchecked exception we should go for try-finally block(runtime exceptions)
+
+			system.exit(0) ------ to hault execution of program then and their itself
+
+			system.err.println--------- to print in red
+
+
+try-catch ---------- in this in catch we write error message and catch block is compulsory
+
+			whenever we have checked eception we should go for try-catch block(compiletime exceptions)
+
+			if we have we have to always right catch(Exception e) atlast because it belongs to parent exception and we have to always do this if we have multiple catch blocks
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								java exception hierarchy
+
+java exception are hierarchial and inheritance is used to categorize different types of exceptions
+
+throwable is a parent class of java exceptions hierarchy and it has two child objects ------ error and exception
+
+
+
+								ERRORS
+
+errors are exceptional scenarios that are out of scope of application and its not possible to anticipate and recover from them
+
+eg------------ outofmemory errors,stackoverflowerror 
+
+checked exception ------------ it will give u warnings
+
+unchecked exception --------- it will not show ay warnings
+
+
+1---------------public string getmessage()--------- returns some message with string it is present in throwable class 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+								
+
+
+
+
+

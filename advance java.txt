@@ -1,0 +1,476 @@
+								
+								COLLECTIONS FRAMEWORK
+
+collections are like containers that group  multiple items in single units  --------eg- jars of chocolates
+
+JAVA 1.2 PROVIDEDE COLLECTIONS FRAMEWORK THAT IS ARCHITECTURE TO REPRESENT AND MANIPULATE COLECTIONS IN JAVA IN STANDARD WAY
+
+they are used in almost every programming language and when java arrived it came with few collection classes vector,stack,hashtable
+
+all java colllections are present in java.util.collections 
+
+collections is also a concrete class
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+					JAVA COLLECTIONS CONSIST OF FOLLOWING
+
+						1----------INTERFACE
+
+JAVA.UTIL.COLLECTIONS IS ROOT INTERFACE OF COLLECTION FRAMEWORK
+
+it contains some important methods such as size(),iterator(),add(),remove(),clear()
+
+important interfaces are java.util.list,java.util.set,java.util.queue and java.util.map
+
+all collections framwork interfaces are present in java.util package
+
+						2---------IMPLEMENTATION CLASSES
+
+collections in java provides core implementation classes for collections
+
+we can use this to create different types of collections
+
+some important collection classes are arraylist,linkedlist,hashmap,treemap,treeset
+
+we can also create special collection classes, here we need to extend them to create our custom collection class
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+					benefits of java collections framework
+
+reduced development effort
+
+increased quality 
+
+					java collection interfaces
+
+java collection interfaces are foundation of java collection frameworks
+
+all core aollection interfaces are generic(datatype)
+
+public.interface.collection<E>-------- here e is generics
+
+generic is used to specify the type of object it contains
+
+generics helps us to reduce runtime errors by checking objects at compile-time
+
+if an unsupported operations is invoked a collection implementation throws unsupportedoperationexception
+
+								collection interface
+
+ it is a root of collection hierarachy 
+
+a collection represents a group of objects knowns as its elements
+
+collection provides various methods such as (size,isEmpty),(contains),(Add,remove),(iterator)
+
+collections also provides bulk operations methods that work on entire collections ------- containsall,addall,removeall,retainall,clear
+
+toArray method are provided as a bridge
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								set interface
+
+***** it is a collection that does not contains duplicate elements
+
+it might have null but it will be only one null value
+
+java platform contains  general purpose set implementations hashset,treeset,linkedhashset
+
+set interface doesnot all ow random access to an element in collections
+
+here we can use for each loop to traverse elements of the set
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								list interface
+
+list is an order collection contains duplicate values 
+
+the user of this interface has precise control over where in list each element is inserted
+
+unlike sets,lists typically allowduplecate elements.more formally lists typically allow paits of em=lements and such that they typically allow multiple null elements if they allow null elements at all
+
+arratlist and linked list areiplementation classes of list interface
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								QUEUE INTERFACE
+
+a collection design for holding elements before processing  
+
+beside basic collection operatons it also provifdes additional insertion,extraction and inspection operations
+
+queue is FIFO(first in  first out)
+
+									their method
+
+								1--- boolean offer(E e)---------- 
+
+*******it inserts specified element in queue without violating capacity restriction.return will be true if element is added otherwise its false and it throws null pointer exception classcastexception and illigalarguement exception
+
+								2----- E poll()--------
+
+*******it retrieves and removes the first element in the queue or returns if this queue is empty
+	
+								3------- E element()---
+
+*******it retrieves but does not remove the head of this queue
+
+it throws an exception
+
+this method is different from peek only in that it throws an exception if this queue is empty
+
+								4---------- E peek()------
+
+retrieves but does not remove head of this queue
+
+it does not throws exceptions 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								MAP INTERFACE
+
+it helps us to map objects in key and values pairs
+
+it cannot have duplicate keys but can have duplicate values
+
+each key can map at the most one value
+
+java platform contains 3 general purpose map implementations ------- hashmap,treemap,linkedhashmap
+
+					basic operations of map are
+
+ put --------- to add elements in map
+
+,get----------- retrieve elements inside map
+
+,containskey,containsvalue,size, and isEmpty
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								JAVA COLLECTION CLASSSES
+
+JAVA COLLECTIONS FRAMEWORK COMES WITH MANY IMPLEMENTATION CLASSES FOR INTERFACES
+
+							Hashset class
+
+
+java hashset is implementing set interface and is backed by hashmap
+
+we can set initial capacity and load factor for this collection
+
+load factor is a measure of how full the hash 
+
+This class implements the {Set} interface and supported by a hash table
+
+it makes no guarantee as to iteration order of set in particular it does not guarantee that order will remain constant overtime.
+
+hashet class permits null values
+
+hashset has 5 constructors
+
+if we want to implement any class in hashset we should go to that class and add to string method to it
+
+						constructors
+
+public hashset() ----------- constructs a new empty set aand has initial capacity 16 and load factor is 0.75
+
+public Hashset(int initial capacity,float loadfactor){
+map = new hashmap<>(initilacapacity,loadfactor);
+}
+
+hashset(int initial capacity,float loadfactor,boolean dummy){
+map = new LinkedHashmap<>(initialcapacity, loadfactor);
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								HASHMAP CLASS
+
+if we are first time executing any key for first time it will return null in put method and it returns objects
+
+if we want to update we will use put and it willl return previously object
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								TREESET CLASS
+
+treesets are also supported by map
+
+here treeset class must  always implement comparable otherwise it will show classcasteexception
+
+here we have 5 constructors
+
+treeset is very much concerned about comparison
+
+here we will have output in ascending order
+
+here sorting of set is done if we do not want in proper order we will use hashset
+
+								constructors
+
+1-------- public TreeSet(){   
+this(new TreeMap<E,Object>());
+}
+
+above constructor constructs a new empty tree set sorted according to natural ordering of its element
+
+all elements in the set must implement interface
+
+all such elements must be mutually comparable
+
+2-------- public(comparator<? super E> comparator){}  -----here it constructs an new empty treeset and comparator that will be used to order this set
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								ARRAYLIST CLASS
+
+it is a resizeable array implementation of list interface
+
+here their are methods werer we can manipulate the size of the array
+
+here we can also have null values
+
+here the constructor performs empty arraylist with initial capacity
+
+public arraylist(collection<? extends E> c) ------create a arraylist that will have same elements as concstructor
+
+						methods
+
+1------- public void Trimsize() -----------  USED TO TRIM SIZE OF ARRAY IF MEMORY IS NOT OCCUPIED
+
+2 --------PUBLIC void ensurecapacity(int capacity) ------- increase the capacity of arraylist if necessary to ensure that it can hold that data
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	collection 		ordering	keyvalue	duplicateelements	nullelements 	threadsafe	loadfactor	initial capacity
+
+1-------arraylist		yes		no 		yes			yes		no 		no		yes
+
+2-------linkedlist		yes		no 		yes			yes		no		no 		yes
+
+3-------hashset			no		no 		no			yes		no		yes		yes
+
+4-------treeset			yes		no		no			no		no		
+
+5------hashmap			no		yes		no			yes		no
+
+6------treemap			yes		yes		no			no		no
+
+7------hashtable		no 		yes		no 			no 		yes
+
+8------vector			yes		no		yes			yes		yes
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							JAVA LAMBDA EXPRESSIONS
+
+lambda expression is a new and important feature of java was included in java se 8
+
+**************lambda expression is used to provide implementation of functional interface and it has less coding
+
+we dont need to define method again for providing implementation
+
+java lambde expression is treated as a function
+
+java lambda expression .class file should not be created
+
+syntax------
+
+(arguement-list) -> {body};
+
+arguement list can be empty or non empty
+
+-> ------- links arguement list with the body
+
+body contains logic 
+
+when we use lambda expression we do not need to override
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+								THREADS
+
+A thread is a small program which is a part of a larger program
+
+eg ---------------- when we want to download any filefrom internet we first view page and then download it here we use 2 threads viewing and downloading at same time
+
+the main thread that starts automatically when u run the program
+
+we use threads because one application it big it will take time to execute so by creating new threads and calling that threads we can run all th threads parallely at same time
+
+javva helps u create programs that start additional threads to perform specific tasks
+
+************************************multithreading is a java feature that allows concurrent execution of two or more parts of program for maximum utilization of cpu
+
+*********** when we want to start a new thread we need to invoke 
+new classname().start();
+
+this start method will internally call run method
+
+when we create our own thread we will get different outputs as main thread and our own thread will run parallelly and this is concept of multi threading
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						
+							creation of threads
+
+in java threads can be createed in 2 ways
+
+
+
+							1-----by extending thread class
+
+it is present on java.lang
+
+here for starting thread we need to create object of class and invoke start
+
+new T2().start(); // causes this thread to start execution of t2 class
+// here t2 is class that is extending threads
+
+
+							2 -----by implementation runnable interface
+
+
+it is present on java.lang
+
+here for running a thread we need create object of thread class and pass that  class as arguement to thtread class
+
+//		T3 t3 = new T3();
+		//		Thread t = new Thread(t3);  // here t3 is class implementing runnable interface
+		//		t.start();
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+every thread will have 3 importatnt properties
+
+1------- thread name--------- thread namecan be created by programmer
+
+2 -------thread id-------created by a compiler/thread scheduler
+
+it is unique number(id) which is created and assigned by thread scheduler to every singlethread in order to identify them uniquely
+
+3---------- thread priority----------it is used by thread scheduler to decide order of execution of given threads
+
+priority of the thread is an intrger value rangng from 1 - 10.
+
+to set priority by setValue();
+
+
+we have used synchronized keyword before method to have output in ordered manner
+
+when both threads are using one same resource it causes race problem
+
+in order to make data synchronized we can use methods or declare a keyword synchronize before method
+
+and methods used are sleep() and join()
+
+a thread dies naturally when run method exits
+
+if race condition we can go for yield() and sleep() to overcome race problem
+
+stop()----- used to stop the thread explicitly
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							LIFECYCLE OF THREADS
+
+NEW ----------- a thread that has not yet started is in state
+
+RUNNABLE ------- a thread executiong in java virtual machine is in this state { start() }
+
+Blocked-------- a thread that is blocked waiting for a monitor lock is in this state { yield(),sleep(),join()}
+
+waiting--------- a thread that is waiting indefinetely for another thread to perform particular action is in this state {  wait(),notify(),notifyAll() }.(for deadlock)
+
+Terminated ---- a thread that has exited is in this state { stop() }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							RACECONDITION
+
+IT OCCURS IN MULTI THREAD ENVIRONMENT WHEN  MORE THEN ONE THREAD TRY TO ACCES A SHREAD RESOURECE AT SAME TIME
+
+IN OREDER tO OVERCOME THat WE CAN USE METHODS SUCH AS yield(),sleep(),join()
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+							SYNCHRONIZATION
+
+HERE WE USE SYNCHRONIZED KEYWORD WE WILL GET OUTPUT AS 
+
+SECOND THREAD WILL BE EXECUTED AFTER FIRST THREAD EXECUTION HAS OCCURED
+
+a popular solution is to provide some kind of lock.
+
+only one thread can acquire a particular lock at particular time,this can be achieved by using keyword synchronized
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+								deadlock
+
+deadlock in java is a programming situation  whwere two or more threads are blocked forever
+
+it arises with atleast two threads and two or more resources
+
+in order to over come deadlock situation using INTER THREAD COMMUNICATION
+
+to overcome deadlock we will use methods such as wait(),notify() and notifyall()
+
+WAIT() ----------THIS METHOD WILL PAUSE EXECUTUON OF THIS THREAD and releases object lock and then gives another chance to execute thread
+
+notify() --------- wakes up first thread that called wait() on same object()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						difference between run and start method
+				run										start
+it is used to perform action on  thread								it is used to start executuon of thread
+we can call run method muktipletimes								it internally calls run method
+we need to everttime override run method							start method is only invoked at start of execution
+a thread is dead when run method exits
+
+						difference between sleep and wait method
+
+				sleep										wait
+
+it is used to sleep a thread for particular time				it pauses execution of thread and releases object lock so other threads get executed
+it is used tio overcome race problem						it is used to overcome deadlock problem
+it does not return any value							it does ot return any value
+it works with join() 								it works with notify(),notifyAll()
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+								REGEX
+
+Regex defines a pattern for a string
+
+it is used to search,manipulate or edit text
+
+regex is not language specific
+
+regex is present in java.util.regex and it contains three classes
+
+[] --- for range
+
+{}-- for number of characters u want of ur choice
+
+							1-------pattern
+
+pattern object is a compiled version of regular expression
+
+pattern class doesnt have a any public constructor
+
+we use public static method compile() to create pattern object by passing regular expression arguement
+
+							2------- matcher
+
+here we need to use matches() to match a pattern
+
