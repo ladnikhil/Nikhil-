@@ -1,27 +1,28 @@
-package com.dev.collections;
+package com.dev.myproject;
 
-public class Employee implements Comparable <Employee> {
-
+public class Employee {
+	
+	private int empid;
 	private String name;
-	private int id;
 	private String email;
 	private String password;
+	private double salary;
 	
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", id=" + id + ", email=" + email +  "]";
+		return "Employee [empid=" + empid + ", name=" + name + ", email=" + email + ", salary=" + salary + "]";
+	}
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -35,12 +36,20 @@ public class Employee implements Comparable <Employee> {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
 	
-// this override is for implements comparable<Employee>
-@Override
-public int compareTo(Employee e) {
-	// TODO Auto-generated method stub
-	return (this.id - e.id);// here we are returning object
-}
+	
+	
+	
+	
+	
+
+	
+
 
 }
